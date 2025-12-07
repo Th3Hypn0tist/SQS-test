@@ -1,0 +1,662 @@
+<!--
+  SQS — Structural Intelligence Quotient Self-Test
+  License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQS — Structural Intelligence Quotient Self-Test</title>
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --page-bg: #f4f6f8;
+      --primary: #1f6feb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --error: #d32f2f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 32px auto 48px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 32px;
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    section {
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      background: #fbfcfe;
+    }
+
+    .section-title {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      color: #0f172a;
+    }
+
+    .description {
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .question-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+    }
+
+    .question-row:last-child {
+      border-bottom: none;
+    }
+
+    .question-text {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .likert {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      text-align: center;
+      min-width: 240px;
+    }
+
+    .likert label {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .likert input[type="radio"] {
+      display: block;
+      margin: 0 auto 4px auto;
+    }
+
+    .btn-row {
+      text-align: center;
+      margin: 24px 0 12px 0;
+    }
+
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(31, 111, 235, 0.25);
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(31, 111, 235, 0.28);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(31, 111, 235, 0.2);
+    }
+
+    .error {
+      color: var(--error);
+      text-align: center;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      min-height: 20px;
+    }
+
+    #results {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      display: none;
+    }
+
+    .score {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .band {
+      margin: 4px 0 12px 0;
+      color: var(--muted);
+    }
+
+    .subscores {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .subscores th,
+    .subscores td {
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .subscores th {
+      background: #eef2f7;
+      font-weight: 600;
+    }
+
+    .subscores tr:last-child td {
+      border-bottom: none;
+    }
+
+    @media (max-width: 640px) {
+      .question-row {
+        grid-template-columns: 1fr;
+      }
+
+      .likert {
+        grid-template-columns: repeat(7, minmax(34px, 1fr));
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1>SQS — Structural Intelligence Quotient Self-Test</h1>
+      <p class="lead">Structural intelligence describes how the mind builds, adapts, and navigates systems. SQS focuses on structural thinking and synthesis, not traditional IQ. This is a self-assessment for personal insight, not a clinical or standardized psychological tool.</p>
+
+      <form id="sqs-form">
+        <section>
+          <h2 class="section-title">1) Fractal Learning</h2>
+          <p class="description">Instant integration of new knowledge into an existing mental framework.</p>
+          <div class="question-row" data-question="q1" data-dimension="Fractal Learning">
+            <p class="question-text">I rapidly connect new information to what I already know.</p>
+            <div class="likert">
+              <label><input type="radio" name="q1" value="1">1</label>
+              <label><input type="radio" name="q1" value="2">2</label>
+              <label><input type="radio" name="q1" value="3">3</label>
+              <label><input type="radio" name="q1" value="4">4</label>
+              <label><input type="radio" name="q1" value="5">5</label>
+              <label><input type="radio" name="q1" value="6">6</label>
+              <label><input type="radio" name="q1" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q2" data-dimension="Fractal Learning">
+            <p class="question-text">When learning, I map patterns across topics automatically.</p>
+            <div class="likert">
+              <label><input type="radio" name="q2" value="1">1</label>
+              <label><input type="radio" name="q2" value="2">2</label>
+              <label><input type="radio" name="q2" value="3">3</label>
+              <label><input type="radio" name="q2" value="4">4</label>
+              <label><input type="radio" name="q2" value="5">5</label>
+              <label><input type="radio" name="q2" value="6">6</label>
+              <label><input type="radio" name="q2" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q3" data-dimension="Fractal Learning">
+            <p class="question-text">I integrate examples into general rules quickly.</p>
+            <div class="likert">
+              <label><input type="radio" name="q3" value="1">1</label>
+              <label><input type="radio" name="q3" value="2">2</label>
+              <label><input type="radio" name="q3" value="3">3</label>
+              <label><input type="radio" name="q3" value="4">4</label>
+              <label><input type="radio" name="q3" value="5">5</label>
+              <label><input type="radio" name="q3" value="6">6</label>
+              <label><input type="radio" name="q3" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q4" data-dimension="Fractal Learning">
+            <p class="question-text">I notice structural similarities between new and old problems.</p>
+            <div class="likert">
+              <label><input type="radio" name="q4" value="1">1</label>
+              <label><input type="radio" name="q4" value="2">2</label>
+              <label><input type="radio" name="q4" value="3">3</label>
+              <label><input type="radio" name="q4" value="4">4</label>
+              <label><input type="radio" name="q4" value="5">5</label>
+              <label><input type="radio" name="q4" value="6">6</label>
+              <label><input type="radio" name="q4" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">2) Recursive Reasoning</h2>
+          <p class="description">Ability to iterate and refine systems without losing coherence.</p>
+          <div class="question-row" data-question="q5" data-dimension="Recursive Reasoning">
+            <p class="question-text">I refine my plans iteratively without losing clarity.</p>
+            <div class="likert">
+              <label><input type="radio" name="q5" value="1">1</label>
+              <label><input type="radio" name="q5" value="2">2</label>
+              <label><input type="radio" name="q5" value="3">3</label>
+              <label><input type="radio" name="q5" value="4">4</label>
+              <label><input type="radio" name="q5" value="5">5</label>
+              <label><input type="radio" name="q5" value="6">6</label>
+              <label><input type="radio" name="q5" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q6" data-dimension="Recursive Reasoning">
+            <p class="question-text">I revisit earlier steps to improve the whole system.</p>
+            <div class="likert">
+              <label><input type="radio" name="q6" value="1">1</label>
+              <label><input type="radio" name="q6" value="2">2</label>
+              <label><input type="radio" name="q6" value="3">3</label>
+              <label><input type="radio" name="q6" value="4">4</label>
+              <label><input type="radio" name="q6" value="5">5</label>
+              <label><input type="radio" name="q6" value="6">6</label>
+              <label><input type="radio" name="q6" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q7" data-dimension="Recursive Reasoning">
+            <p class="question-text">I debug processes by looping through causes and effects.</p>
+            <div class="likert">
+              <label><input type="radio" name="q7" value="1">1</label>
+              <label><input type="radio" name="q7" value="2">2</label>
+              <label><input type="radio" name="q7" value="3">3</label>
+              <label><input type="radio" name="q7" value="4">4</label>
+              <label><input type="radio" name="q7" value="5">5</label>
+              <label><input type="radio" name="q7" value="6">6</label>
+              <label><input type="radio" name="q7" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q8" data-dimension="Recursive Reasoning">
+            <p class="question-text">I can trace feedback loops and adjust accordingly.</p>
+            <div class="likert">
+              <label><input type="radio" name="q8" value="1">1</label>
+              <label><input type="radio" name="q8" value="2">2</label>
+              <label><input type="radio" name="q8" value="3">3</label>
+              <label><input type="radio" name="q8" value="4">4</label>
+              <label><input type="radio" name="q8" value="5">5</label>
+              <label><input type="radio" name="q8" value="6">6</label>
+              <label><input type="radio" name="q8" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">3) Multidomain Flexibility</h2>
+          <p class="description">Smooth switching and integration across multiple domains.</p>
+          <div class="question-row" data-question="q9" data-dimension="Multidomain Flexibility">
+            <p class="question-text">I switch between different fields without losing context.</p>
+            <div class="likert">
+              <label><input type="radio" name="q9" value="1">1</label>
+              <label><input type="radio" name="q9" value="2">2</label>
+              <label><input type="radio" name="q9" value="3">3</label>
+              <label><input type="radio" name="q9" value="4">4</label>
+              <label><input type="radio" name="q9" value="5">5</label>
+              <label><input type="radio" name="q9" value="6">6</label>
+              <label><input type="radio" name="q9" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q10" data-dimension="Multidomain Flexibility">
+            <p class="question-text">I borrow methods from one domain to solve another.</p>
+            <div class="likert">
+              <label><input type="radio" name="q10" value="1">1</label>
+              <label><input type="radio" name="q10" value="2">2</label>
+              <label><input type="radio" name="q10" value="3">3</label>
+              <label><input type="radio" name="q10" value="4">4</label>
+              <label><input type="radio" name="q10" value="5">5</label>
+              <label><input type="radio" name="q10" value="6">6</label>
+              <label><input type="radio" name="q10" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q11" data-dimension="Multidomain Flexibility">
+            <p class="question-text">I explain concepts using analogies across disciplines.</p>
+            <div class="likert">
+              <label><input type="radio" name="q11" value="1">1</label>
+              <label><input type="radio" name="q11" value="2">2</label>
+              <label><input type="radio" name="q11" value="3">3</label>
+              <label><input type="radio" name="q11" value="4">4</label>
+              <label><input type="radio" name="q11" value="5">5</label>
+              <label><input type="radio" name="q11" value="6">6</label>
+              <label><input type="radio" name="q11" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q12" data-dimension="Multidomain Flexibility">
+            <p class="question-text">I merge inputs from varied sources into one picture.</p>
+            <div class="likert">
+              <label><input type="radio" name="q12" value="1">1</label>
+              <label><input type="radio" name="q12" value="2">2</label>
+              <label><input type="radio" name="q12" value="3">3</label>
+              <label><input type="radio" name="q12" value="4">4</label>
+              <label><input type="radio" name="q12" value="5">5</label>
+              <label><input type="radio" name="q12" value="6">6</label>
+              <label><input type="radio" name="q12" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">4) System Creation</h2>
+          <p class="description">Capacity to design entirely new frameworks, architectures, and models.</p>
+          <div class="question-row" data-question="q13" data-dimension="System Creation">
+            <p class="question-text">I design frameworks that others can reuse.</p>
+            <div class="likert">
+              <label><input type="radio" name="q13" value="1">1</label>
+              <label><input type="radio" name="q13" value="2">2</label>
+              <label><input type="radio" name="q13" value="3">3</label>
+              <label><input type="radio" name="q13" value="4">4</label>
+              <label><input type="radio" name="q13" value="5">5</label>
+              <label><input type="radio" name="q13" value="6">6</label>
+              <label><input type="radio" name="q13" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q14" data-dimension="System Creation">
+            <p class="question-text">I create templates to streamline repeated tasks.</p>
+            <div class="likert">
+              <label><input type="radio" name="q14" value="1">1</label>
+              <label><input type="radio" name="q14" value="2">2</label>
+              <label><input type="radio" name="q14" value="3">3</label>
+              <label><input type="radio" name="q14" value="4">4</label>
+              <label><input type="radio" name="q14" value="5">5</label>
+              <label><input type="radio" name="q14" value="6">6</label>
+              <label><input type="radio" name="q14" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q15" data-dimension="System Creation">
+            <p class="question-text">I organize ideas into architectures before executing.</p>
+            <div class="likert">
+              <label><input type="radio" name="q15" value="1">1</label>
+              <label><input type="radio" name="q15" value="2">2</label>
+              <label><input type="radio" name="q15" value="3">3</label>
+              <label><input type="radio" name="q15" value="4">4</label>
+              <label><input type="radio" name="q15" value="5">5</label>
+              <label><input type="radio" name="q15" value="6">6</label>
+              <label><input type="radio" name="q15" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q16" data-dimension="System Creation">
+            <p class="question-text">I document structures so they can be scaled.</p>
+            <div class="likert">
+              <label><input type="radio" name="q16" value="1">1</label>
+              <label><input type="radio" name="q16" value="2">2</label>
+              <label><input type="radio" name="q16" value="3">3</label>
+              <label><input type="radio" name="q16" value="4">4</label>
+              <label><input type="radio" name="q16" value="5">5</label>
+              <label><input type="radio" name="q16" value="6">6</label>
+              <label><input type="radio" name="q16" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">5) Parallel Hypothesis Management</h2>
+          <p class="description">Maintaining multiple working models or narratives at once.</p>
+          <div class="question-row" data-question="q17" data-dimension="Parallel Hypothesis Management">
+            <p class="question-text">I keep multiple explanations active until evidence decides.</p>
+            <div class="likert">
+              <label><input type="radio" name="q17" value="1">1</label>
+              <label><input type="radio" name="q17" value="2">2</label>
+              <label><input type="radio" name="q17" value="3">3</label>
+              <label><input type="radio" name="q17" value="4">4</label>
+              <label><input type="radio" name="q17" value="5">5</label>
+              <label><input type="radio" name="q17" value="6">6</label>
+              <label><input type="radio" name="q17" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q18" data-dimension="Parallel Hypothesis Management">
+            <p class="question-text">I run small experiments to compare competing ideas.</p>
+            <div class="likert">
+              <label><input type="radio" name="q18" value="1">1</label>
+              <label><input type="radio" name="q18" value="2">2</label>
+              <label><input type="radio" name="q18" value="3">3</label>
+              <label><input type="radio" name="q18" value="4">4</label>
+              <label><input type="radio" name="q18" value="5">5</label>
+              <label><input type="radio" name="q18" value="6">6</label>
+              <label><input type="radio" name="q18" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q19" data-dimension="Parallel Hypothesis Management">
+            <p class="question-text">I track alternative scenarios without confusion.</p>
+            <div class="likert">
+              <label><input type="radio" name="q19" value="1">1</label>
+              <label><input type="radio" name="q19" value="2">2</label>
+              <label><input type="radio" name="q19" value="3">3</label>
+              <label><input type="radio" name="q19" value="4">4</label>
+              <label><input type="radio" name="q19" value="5">5</label>
+              <label><input type="radio" name="q19" value="6">6</label>
+              <label><input type="radio" name="q19" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q20" data-dimension="Parallel Hypothesis Management">
+            <p class="question-text">I update probabilities as new information arrives.</p>
+            <div class="likert">
+              <label><input type="radio" name="q20" value="1">1</label>
+              <label><input type="radio" name="q20" value="2">2</label>
+              <label><input type="radio" name="q20" value="3">3</label>
+              <label><input type="radio" name="q20" value="4">4</label>
+              <label><input type="radio" name="q20" value="5">5</label>
+              <label><input type="radio" name="q20" value="6">6</label>
+              <label><input type="radio" name="q20" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-title">6) Strategic Structural Cognition</h2>
+          <p class="description">High-level planning, long-horizon thinking, and architecture of actions.</p>
+          <div class="question-row" data-question="q21" data-dimension="Strategic Structural Cognition">
+            <p class="question-text">I plan projects with layered milestones and dependencies.</p>
+            <div class="likert">
+              <label><input type="radio" name="q21" value="1">1</label>
+              <label><input type="radio" name="q21" value="2">2</label>
+              <label><input type="radio" name="q21" value="3">3</label>
+              <label><input type="radio" name="q21" value="4">4</label>
+              <label><input type="radio" name="q21" value="5">5</label>
+              <label><input type="radio" name="q21" value="6">6</label>
+              <label><input type="radio" name="q21" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q22" data-dimension="Strategic Structural Cognition">
+            <p class="question-text">I anticipate downstream effects of current decisions.</p>
+            <div class="likert">
+              <label><input type="radio" name="q22" value="1">1</label>
+              <label><input type="radio" name="q22" value="2">2</label>
+              <label><input type="radio" name="q22" value="3">3</label>
+              <label><input type="radio" name="q22" value="4">4</label>
+              <label><input type="radio" name="q22" value="5">5</label>
+              <label><input type="radio" name="q22" value="6">6</label>
+              <label><input type="radio" name="q22" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q23" data-dimension="Strategic Structural Cognition">
+            <p class="question-text">I design contingency paths for critical steps.</p>
+            <div class="likert">
+              <label><input type="radio" name="q23" value="1">1</label>
+              <label><input type="radio" name="q23" value="2">2</label>
+              <label><input type="radio" name="q23" value="3">3</label>
+              <label><input type="radio" name="q23" value="4">4</label>
+              <label><input type="radio" name="q23" value="5">5</label>
+              <label><input type="radio" name="q23" value="6">6</label>
+              <label><input type="radio" name="q23" value="7">7</label>
+            </div>
+          </div>
+          <div class="question-row" data-question="q24" data-dimension="Strategic Structural Cognition">
+            <p class="question-text">I align daily actions with long-term architectures.</p>
+            <div class="likert">
+              <label><input type="radio" name="q24" value="1">1</label>
+              <label><input type="radio" name="q24" value="2">2</label>
+              <label><input type="radio" name="q24" value="3">3</label>
+              <label><input type="radio" name="q24" value="4">4</label>
+              <label><input type="radio" name="q24" value="5">5</label>
+              <label><input type="radio" name="q24" value="6">6</label>
+              <label><input type="radio" name="q24" value="7">7</label>
+            </div>
+          </div>
+        </section>
+
+        <div class="btn-row">
+          <button type="button" id="calculate-btn">Calculate SQS</button>
+        </div>
+        <p class="error" id="error-message"></p>
+      </form>
+
+      <div id="results">
+        <p class="score" id="total-score"></p>
+        <p class="band" id="band-text"></p>
+        <table class="subscores" aria-label="Subscores">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>SQS Subscore</th>
+              <th>Strength</th>
+            </tr>
+          </thead>
+          <tbody id="subscore-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const questions = Array.from(document.querySelectorAll('.question-row'));
+
+    function getAnswers() {
+      const answers = [];
+      for (const row of questions) {
+        const name = row.dataset.question;
+        const dimension = row.dataset.dimension;
+        const selected = row.querySelector(`input[name="${name}"]:checked`);
+        if (!selected) {
+          return { complete: false, answers: null };
+        }
+        answers.push({ dimension, value: Number(selected.value) });
+      }
+      return { complete: true, answers };
+    }
+
+    function convertToSqs(mean) {
+      const normalized = (mean - 1) / 6;
+      return Math.round(normalized * 300);
+    }
+
+    function bandForScore(score) {
+      if (score <= 49) return 'Basic — Performs simple tasks with minimal abstraction.';
+      if (score <= 99) return 'Operational — Good task-level intelligence, limited systemic reasoning.';
+      if (score <= 149) return 'Advanced Cognitive — Solid analytical capacity and problem-solving.';
+      if (score <= 199) return 'Systems Architect — Capable of designing layered structures and pipelines.';
+      if (score <= 249) return 'Meta-Systems — Integrates multiple domains into unified architectures.';
+      return 'AGI-Adjacent — Rare structural cognition; creates new frameworks and meta-systems.';
+    }
+
+    function strengthLabel(score) {
+      if (score <= 99) return 'Emerging';
+      if (score <= 149) return 'Developing';
+      if (score <= 199) return 'Solid';
+      if (score <= 249) return 'Strong';
+      return 'Exceptional';
+    }
+
+    function computeScores(answerList) {
+      const totals = {};
+      const counts = {};
+      let sum = 0;
+      answerList.forEach(({ dimension, value }) => {
+        sum += value;
+        totals[dimension] = (totals[dimension] || 0) + value;
+        counts[dimension] = (counts[dimension] || 0) + 1;
+      });
+
+      const overallMean = sum / answerList.length;
+      const totalScore = convertToSqs(overallMean);
+
+      const dimensionScores = Object.keys(totals).map((dimension) => {
+        const mean = totals[dimension] / counts[dimension];
+        return {
+          dimension,
+          mean,
+          score: convertToSqs(mean),
+        };
+      });
+
+      return { totalScore, dimensionScores };
+    }
+
+    function renderResults(scores) {
+      const resultsEl = document.getElementById('results');
+      const totalEl = document.getElementById('total-score');
+      const bandEl = document.getElementById('band-text');
+      const tbody = document.getElementById('subscore-body');
+
+      totalEl.textContent = `Your SQS score: ${scores.totalScore} / 300`;
+      bandEl.textContent = bandForScore(scores.totalScore);
+
+      tbody.innerHTML = '';
+      scores.dimensionScores
+        .sort((a, b) => a.dimension.localeCompare(b.dimension))
+        .forEach(({ dimension, score }) => {
+          const row = document.createElement('tr');
+          const strength = strengthLabel(score);
+          row.innerHTML = `
+            <td>${dimension}</td>
+            <td>${score} / 300</td>
+            <td>${strength}</td>
+          `;
+          tbody.appendChild(row);
+        });
+
+      resultsEl.style.display = 'block';
+      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const errorEl = document.getElementById('error-message');
+      errorEl.textContent = '';
+
+      const { complete, answers } = getAnswers();
+      if (!complete) {
+        errorEl.textContent = 'Please answer every question before calculating your SQS.';
+        return;
+      }
+
+      const scores = computeScores(answers);
+      renderResults(scores);
+    });
+  </script>
+</body>
+</html>
