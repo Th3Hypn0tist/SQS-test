@@ -1,5 +1,6 @@
 <!--
-  SQS — Structural Intelligence Quotient Self-Test
+  SQS — Structural Intelligence Quotient Test
+  Includes: Self-Assessment + Ability-Based Structural Intelligence Tasks
   License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
 -->
 <!DOCTYPE html>
@@ -7,570 +8,455 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SQS — Structural Intelligence Quotient Self-Test</title>
+  <title>SQS — Structural Intelligence Quotient Test</title>
   <style>
     :root {
+      --page-bg: #eef2f5;
       --card-bg: #ffffff;
-      --page-bg: #f4f6f8;
       --primary: #1f6feb;
-      --text: #1f2937;
-      --muted: #6b7280;
+      --text: #0f172a;
+      --muted: #4b5563;
       --border: #e5e7eb;
       --error: #d32f2f;
+      --success: #15803d;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background: var(--page-bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    .page {
-      max-width: 900px;
-      margin: 32px auto 48px auto;
-      padding: 0 16px;
-    }
+    a { color: var(--primary); text-decoration: none; }
+
+    .page { max-width: 900px; margin: 32px auto 48px auto; padding: 0 18px; }
 
     .card {
       background: var(--card-bg);
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      padding: 32px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      padding: 28px;
     }
 
-    h1 {
-      margin-top: 0;
-      font-size: 28px;
-      letter-spacing: -0.5px;
+    header { margin-bottom: 18px; }
+    h1 { margin: 0 0 8px 0; font-size: 28px; letter-spacing: -0.4px; }
+    h2 { margin: 0 0 6px 0; font-size: 22px; letter-spacing: -0.3px; }
+    h3 { margin: 18px 0 6px 0; font-size: 18px; }
+    p.lead { color: var(--muted); margin: 0 0 14px 0; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    h2 {
-      margin-bottom: 8px;
-      letter-spacing: -0.3px;
+    nav a {
+      padding: 8px 12px;
+      background: #e0e7ff;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #1d4ed8;
     }
 
-    p.lead {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    section {
-      margin-bottom: 28px;
+    main section {
+      margin-bottom: 24px;
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
+      border-radius: 12px;
+      padding: 18px;
       background: #fbfcfe;
     }
 
-    .section-title {
-      margin: 0 0 12px 0;
-      font-size: 18px;
-      color: #0f172a;
-    }
+    .description { color: var(--muted); margin-top: 0; }
 
-    .description {
-      margin: 0 0 12px 0;
-      color: var(--muted);
-      font-size: 14px;
+    .question-block {
+      margin-top: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
     }
 
     .question-row {
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: center;
-      padding: 10px 0;
+      gap: 12px;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
-      gap: 10px;
     }
 
-    .question-row:last-child {
-      border-bottom: none;
+    .question-row:last-child { border-bottom: none; }
+    .question-text { margin: 0; }
+
+    .likert { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; min-width: 240px; }
+    .likert label { font-size: 12px; color: var(--muted); display: block; }
+    .likert input { display: block; margin: 0 auto 4px auto; }
+
+    .task {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin: 10px 0;
+      background: #fff;
     }
 
-    .question-text {
-      margin: 0;
-      font-size: 15px;
-    }
+    .task p { margin: 6px 0; }
 
-    .likert {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-      text-align: center;
-      min-width: 240px;
-    }
-
-    .likert label {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .likert input[type="radio"] {
-      display: block;
-      margin: 0 auto 4px auto;
-    }
-
-    .btn-row {
-      text-align: center;
-      margin: 24px 0 12px 0;
-    }
-
+    .btn-row { text-align: center; margin-top: 14px; }
     button {
       background: var(--primary);
       color: #fff;
       border: none;
-      padding: 12px 22px;
+      padding: 12px 18px;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
+      box-shadow: 0 6px 16px rgba(31, 111, 235, 0.22);
       transition: transform 0.1s ease, box-shadow 0.2s ease;
-      box-shadow: 0 6px 16px rgba(31, 111, 235, 0.25);
     }
+    button:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25); }
+    button:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(31, 111, 235, 0.2); }
 
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(31, 111, 235, 0.28);
-    }
+    .error { color: var(--error); text-align: center; min-height: 20px; font-weight: 700; }
+    .success { color: var(--success); text-align: center; min-height: 20px; font-weight: 700; }
 
-    button:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 12px rgba(31, 111, 235, 0.2);
-    }
-
-    .error {
-      color: var(--error);
-      text-align: center;
-      margin: 0 0 10px 0;
-      font-weight: bold;
-      min-height: 20px;
-    }
-
-    #results {
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 10px;
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .stat-box {
       border: 1px solid var(--border);
-      background: #f8fafc;
-      display: none;
+      border-radius: 10px;
+      padding: 12px;
+      background: #fff;
     }
+    .score { font-size: 24px; margin: 0; font-weight: 700; }
+    .band { color: var(--muted); margin: 4px 0 0 0; }
 
-    .score {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0;
-    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; }
+    th { background: #eef2f7; font-weight: 600; }
 
-    .band {
-      margin: 4px 0 12px 0;
-      color: var(--muted);
-    }
-
-    .subscores {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .subscores th,
-    .subscores td {
-      padding: 10px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-
-    .subscores th {
-      background: #eef2f7;
-      font-weight: 600;
-    }
-
-    .subscores tr:last-child td {
-      border-bottom: none;
-    }
+    footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 13px; }
 
     @media (max-width: 640px) {
-      .question-row {
-        grid-template-columns: 1fr;
-      }
-
-      .likert {
-        grid-template-columns: repeat(7, minmax(34px, 1fr));
-        width: 100%;
-      }
+      .question-row { grid-template-columns: 1fr; }
+      nav { justify-content: center; }
+      nav a { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <div class="card">
-      <h1>SQS — Structural Intelligence Quotient Self-Test</h1>
-      <p class="lead">Structural intelligence describes how the mind builds, adapts, and navigates systems. SQS focuses on structural thinking and synthesis, not traditional IQ. This is a self-assessment for personal insight, not a clinical or standardized psychological tool.</p>
+      <header id="intro">
+        <h1>SQS — Structural Intelligence Quotient Test</h1>
+        <p class="lead">Structural Intelligence measures how a mind builds, operates, and evolves complex systems. Unlike traditional IQ, SQS focuses on structural reasoning, recursion, multidomain integration, and system design. This experimental tool combines a self-assessment with practical ability tasks and is intended for exploration, not for clinical or high-stakes evaluation.</p>
+        <nav>
+          <a href="#intro">Introduction</a>
+          <a href="#self">Self-Assessment</a>
+          <a href="#ability">Ability Test</a>
+          <a href="#results">Results & Comparison</a>
+        </nav>
+      </header>
 
-      <form id="sqs-form">
-        <section>
-          <h2 class="section-title">1) Fractal Learning</h2>
-          <p class="description">Instant integration of new knowledge into an existing mental framework.</p>
-          <div class="question-row" data-question="q1" data-dimension="Fractal Learning">
-            <p class="question-text">I rapidly connect new information to what I already know.</p>
-            <div class="likert">
-              <label><input type="radio" name="q1" value="1">1</label>
-              <label><input type="radio" name="q1" value="2">2</label>
-              <label><input type="radio" name="q1" value="3">3</label>
-              <label><input type="radio" name="q1" value="4">4</label>
-              <label><input type="radio" name="q1" value="5">5</label>
-              <label><input type="radio" name="q1" value="6">6</label>
-              <label><input type="radio" name="q1" value="7">7</label>
-            </div>
+      <main>
+        <section id="self">
+          <h2>Self-Assessment (Subjective SQS)</h2>
+          <p class="description">Rate each statement from 1 (Strongly disagree) to 7 (Strongly agree). Please answer all items.</p>
+
+          <div id="self-questions"></div>
+          <div class="btn-row">
+            <button type="button" id="calc-self">Calculate Self-Assessment SQS</button>
           </div>
-          <div class="question-row" data-question="q2" data-dimension="Fractal Learning">
-            <p class="question-text">When learning, I map patterns across topics automatically.</p>
-            <div class="likert">
-              <label><input type="radio" name="q2" value="1">1</label>
-              <label><input type="radio" name="q2" value="2">2</label>
-              <label><input type="radio" name="q2" value="3">3</label>
-              <label><input type="radio" name="q2" value="4">4</label>
-              <label><input type="radio" name="q2" value="5">5</label>
-              <label><input type="radio" name="q2" value="6">6</label>
-              <label><input type="radio" name="q2" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q3" data-dimension="Fractal Learning">
-            <p class="question-text">I integrate examples into general rules quickly.</p>
-            <div class="likert">
-              <label><input type="radio" name="q3" value="1">1</label>
-              <label><input type="radio" name="q3" value="2">2</label>
-              <label><input type="radio" name="q3" value="3">3</label>
-              <label><input type="radio" name="q3" value="4">4</label>
-              <label><input type="radio" name="q3" value="5">5</label>
-              <label><input type="radio" name="q3" value="6">6</label>
-              <label><input type="radio" name="q3" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q4" data-dimension="Fractal Learning">
-            <p class="question-text">I notice structural similarities between new and old problems.</p>
-            <div class="likert">
-              <label><input type="radio" name="q4" value="1">1</label>
-              <label><input type="radio" name="q4" value="2">2</label>
-              <label><input type="radio" name="q4" value="3">3</label>
-              <label><input type="radio" name="q4" value="4">4</label>
-              <label><input type="radio" name="q4" value="5">5</label>
-              <label><input type="radio" name="q4" value="6">6</label>
-              <label><input type="radio" name="q4" value="7">7</label>
-            </div>
-          </div>
+          <div class="error" id="self-error"></div>
+          <div class="success" id="self-success"></div>
         </section>
 
-        <section>
-          <h2 class="section-title">2) Recursive Reasoning</h2>
-          <p class="description">Ability to iterate and refine systems without losing coherence.</p>
-          <div class="question-row" data-question="q5" data-dimension="Recursive Reasoning">
-            <p class="question-text">I refine my plans iteratively without losing clarity.</p>
-            <div class="likert">
-              <label><input type="radio" name="q5" value="1">1</label>
-              <label><input type="radio" name="q5" value="2">2</label>
-              <label><input type="radio" name="q5" value="3">3</label>
-              <label><input type="radio" name="q5" value="4">4</label>
-              <label><input type="radio" name="q5" value="5">5</label>
-              <label><input type="radio" name="q5" value="6">6</label>
-              <label><input type="radio" name="q5" value="7">7</label>
-            </div>
+        <section id="ability">
+          <h2>Ability Test (Objective SQS)</h2>
+          <p class="description">Complete each task. Correct answers score 5 points; incorrect or blank answers score 0.</p>
+          <div id="ability-tasks"></div>
+          <div class="btn-row">
+            <button type="button" id="calc-ability">Calculate Ability-Based SQS</button>
           </div>
-          <div class="question-row" data-question="q6" data-dimension="Recursive Reasoning">
-            <p class="question-text">I revisit earlier steps to improve the whole system.</p>
-            <div class="likert">
-              <label><input type="radio" name="q6" value="1">1</label>
-              <label><input type="radio" name="q6" value="2">2</label>
-              <label><input type="radio" name="q6" value="3">3</label>
-              <label><input type="radio" name="q6" value="4">4</label>
-              <label><input type="radio" name="q6" value="5">5</label>
-              <label><input type="radio" name="q6" value="6">6</label>
-              <label><input type="radio" name="q6" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q7" data-dimension="Recursive Reasoning">
-            <p class="question-text">I debug processes by looping through causes and effects.</p>
-            <div class="likert">
-              <label><input type="radio" name="q7" value="1">1</label>
-              <label><input type="radio" name="q7" value="2">2</label>
-              <label><input type="radio" name="q7" value="3">3</label>
-              <label><input type="radio" name="q7" value="4">4</label>
-              <label><input type="radio" name="q7" value="5">5</label>
-              <label><input type="radio" name="q7" value="6">6</label>
-              <label><input type="radio" name="q7" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q8" data-dimension="Recursive Reasoning">
-            <p class="question-text">I can trace feedback loops and adjust accordingly.</p>
-            <div class="likert">
-              <label><input type="radio" name="q8" value="1">1</label>
-              <label><input type="radio" name="q8" value="2">2</label>
-              <label><input type="radio" name="q8" value="3">3</label>
-              <label><input type="radio" name="q8" value="4">4</label>
-              <label><input type="radio" name="q8" value="5">5</label>
-              <label><input type="radio" name="q8" value="6">6</label>
-              <label><input type="radio" name="q8" value="7">7</label>
-            </div>
-          </div>
+          <div class="error" id="ability-error"></div>
+          <div class="success" id="ability-success"></div>
         </section>
 
-        <section>
-          <h2 class="section-title">3) Multidomain Flexibility</h2>
-          <p class="description">Smooth switching and integration across multiple domains.</p>
-          <div class="question-row" data-question="q9" data-dimension="Multidomain Flexibility">
-            <p class="question-text">I switch between different fields without losing context.</p>
-            <div class="likert">
-              <label><input type="radio" name="q9" value="1">1</label>
-              <label><input type="radio" name="q9" value="2">2</label>
-              <label><input type="radio" name="q9" value="3">3</label>
-              <label><input type="radio" name="q9" value="4">4</label>
-              <label><input type="radio" name="q9" value="5">5</label>
-              <label><input type="radio" name="q9" value="6">6</label>
-              <label><input type="radio" name="q9" value="7">7</label>
+        <section id="results">
+          <h2>Results & Comparison</h2>
+          <p class="description">View subjective versus objective SQS across all dimensions.</p>
+          <div class="results-grid">
+            <div class="stat-box">
+              <h3>Self-Assessment SQS</h3>
+              <p class="score" id="self-total">—</p>
+              <p class="band" id="self-band">Run the calculation to view.</p>
+            </div>
+            <div class="stat-box">
+              <h3>Ability-Based SQS</h3>
+              <p class="score" id="ability-total">—</p>
+              <p class="band" id="ability-band">Run the calculation to view.</p>
+            </div>
+            <div class="stat-box">
+              <h3>Alignment Summary</h3>
+              <p id="alignment-summary">Calculate both sections to compare.</p>
             </div>
           </div>
-          <div class="question-row" data-question="q10" data-dimension="Multidomain Flexibility">
-            <p class="question-text">I borrow methods from one domain to solve another.</p>
-            <div class="likert">
-              <label><input type="radio" name="q10" value="1">1</label>
-              <label><input type="radio" name="q10" value="2">2</label>
-              <label><input type="radio" name="q10" value="3">3</label>
-              <label><input type="radio" name="q10" value="4">4</label>
-              <label><input type="radio" name="q10" value="5">5</label>
-              <label><input type="radio" name="q10" value="6">6</label>
-              <label><input type="radio" name="q10" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q11" data-dimension="Multidomain Flexibility">
-            <p class="question-text">I explain concepts using analogies across disciplines.</p>
-            <div class="likert">
-              <label><input type="radio" name="q11" value="1">1</label>
-              <label><input type="radio" name="q11" value="2">2</label>
-              <label><input type="radio" name="q11" value="3">3</label>
-              <label><input type="radio" name="q11" value="4">4</label>
-              <label><input type="radio" name="q11" value="5">5</label>
-              <label><input type="radio" name="q11" value="6">6</label>
-              <label><input type="radio" name="q11" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q12" data-dimension="Multidomain Flexibility">
-            <p class="question-text">I merge inputs from varied sources into one picture.</p>
-            <div class="likert">
-              <label><input type="radio" name="q12" value="1">1</label>
-              <label><input type="radio" name="q12" value="2">2</label>
-              <label><input type="radio" name="q12" value="3">3</label>
-              <label><input type="radio" name="q12" value="4">4</label>
-              <label><input type="radio" name="q12" value="5">5</label>
-              <label><input type="radio" name="q12" value="6">6</label>
-              <label><input type="radio" name="q12" value="7">7</label>
-            </div>
-          </div>
+
+          <h3>Dimension Comparison</h3>
+          <table aria-label="Comparison table" id="comparison-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Subjective SQS</th>
+                <th>Ability SQS</th>
+                <th>Difference</th>
+                <th>Label</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </section>
+      </main>
 
-        <section>
-          <h2 class="section-title">4) System Creation</h2>
-          <p class="description">Capacity to design entirely new frameworks, architectures, and models.</p>
-          <div class="question-row" data-question="q13" data-dimension="System Creation">
-            <p class="question-text">I design frameworks that others can reuse.</p>
-            <div class="likert">
-              <label><input type="radio" name="q13" value="1">1</label>
-              <label><input type="radio" name="q13" value="2">2</label>
-              <label><input type="radio" name="q13" value="3">3</label>
-              <label><input type="radio" name="q13" value="4">4</label>
-              <label><input type="radio" name="q13" value="5">5</label>
-              <label><input type="radio" name="q13" value="6">6</label>
-              <label><input type="radio" name="q13" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q14" data-dimension="System Creation">
-            <p class="question-text">I create templates to streamline repeated tasks.</p>
-            <div class="likert">
-              <label><input type="radio" name="q14" value="1">1</label>
-              <label><input type="radio" name="q14" value="2">2</label>
-              <label><input type="radio" name="q14" value="3">3</label>
-              <label><input type="radio" name="q14" value="4">4</label>
-              <label><input type="radio" name="q14" value="5">5</label>
-              <label><input type="radio" name="q14" value="6">6</label>
-              <label><input type="radio" name="q14" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q15" data-dimension="System Creation">
-            <p class="question-text">I organize ideas into architectures before executing.</p>
-            <div class="likert">
-              <label><input type="radio" name="q15" value="1">1</label>
-              <label><input type="radio" name="q15" value="2">2</label>
-              <label><input type="radio" name="q15" value="3">3</label>
-              <label><input type="radio" name="q15" value="4">4</label>
-              <label><input type="radio" name="q15" value="5">5</label>
-              <label><input type="radio" name="q15" value="6">6</label>
-              <label><input type="radio" name="q15" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q16" data-dimension="System Creation">
-            <p class="question-text">I document structures so they can be scaled.</p>
-            <div class="likert">
-              <label><input type="radio" name="q16" value="1">1</label>
-              <label><input type="radio" name="q16" value="2">2</label>
-              <label><input type="radio" name="q16" value="3">3</label>
-              <label><input type="radio" name="q16" value="4">4</label>
-              <label><input type="radio" name="q16" value="5">5</label>
-              <label><input type="radio" name="q16" value="6">6</label>
-              <label><input type="radio" name="q16" value="7">7</label>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="section-title">5) Parallel Hypothesis Management</h2>
-          <p class="description">Maintaining multiple working models or narratives at once.</p>
-          <div class="question-row" data-question="q17" data-dimension="Parallel Hypothesis Management">
-            <p class="question-text">I keep multiple explanations active until evidence decides.</p>
-            <div class="likert">
-              <label><input type="radio" name="q17" value="1">1</label>
-              <label><input type="radio" name="q17" value="2">2</label>
-              <label><input type="radio" name="q17" value="3">3</label>
-              <label><input type="radio" name="q17" value="4">4</label>
-              <label><input type="radio" name="q17" value="5">5</label>
-              <label><input type="radio" name="q17" value="6">6</label>
-              <label><input type="radio" name="q17" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q18" data-dimension="Parallel Hypothesis Management">
-            <p class="question-text">I run small experiments to compare competing ideas.</p>
-            <div class="likert">
-              <label><input type="radio" name="q18" value="1">1</label>
-              <label><input type="radio" name="q18" value="2">2</label>
-              <label><input type="radio" name="q18" value="3">3</label>
-              <label><input type="radio" name="q18" value="4">4</label>
-              <label><input type="radio" name="q18" value="5">5</label>
-              <label><input type="radio" name="q18" value="6">6</label>
-              <label><input type="radio" name="q18" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q19" data-dimension="Parallel Hypothesis Management">
-            <p class="question-text">I track alternative scenarios without confusion.</p>
-            <div class="likert">
-              <label><input type="radio" name="q19" value="1">1</label>
-              <label><input type="radio" name="q19" value="2">2</label>
-              <label><input type="radio" name="q19" value="3">3</label>
-              <label><input type="radio" name="q19" value="4">4</label>
-              <label><input type="radio" name="q19" value="5">5</label>
-              <label><input type="radio" name="q19" value="6">6</label>
-              <label><input type="radio" name="q19" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q20" data-dimension="Parallel Hypothesis Management">
-            <p class="question-text">I update probabilities as new information arrives.</p>
-            <div class="likert">
-              <label><input type="radio" name="q20" value="1">1</label>
-              <label><input type="radio" name="q20" value="2">2</label>
-              <label><input type="radio" name="q20" value="3">3</label>
-              <label><input type="radio" name="q20" value="4">4</label>
-              <label><input type="radio" name="q20" value="5">5</label>
-              <label><input type="radio" name="q20" value="6">6</label>
-              <label><input type="radio" name="q20" value="7">7</label>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="section-title">6) Strategic Structural Cognition</h2>
-          <p class="description">High-level planning, long-horizon thinking, and architecture of actions.</p>
-          <div class="question-row" data-question="q21" data-dimension="Strategic Structural Cognition">
-            <p class="question-text">I plan projects with layered milestones and dependencies.</p>
-            <div class="likert">
-              <label><input type="radio" name="q21" value="1">1</label>
-              <label><input type="radio" name="q21" value="2">2</label>
-              <label><input type="radio" name="q21" value="3">3</label>
-              <label><input type="radio" name="q21" value="4">4</label>
-              <label><input type="radio" name="q21" value="5">5</label>
-              <label><input type="radio" name="q21" value="6">6</label>
-              <label><input type="radio" name="q21" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q22" data-dimension="Strategic Structural Cognition">
-            <p class="question-text">I anticipate downstream effects of current decisions.</p>
-            <div class="likert">
-              <label><input type="radio" name="q22" value="1">1</label>
-              <label><input type="radio" name="q22" value="2">2</label>
-              <label><input type="radio" name="q22" value="3">3</label>
-              <label><input type="radio" name="q22" value="4">4</label>
-              <label><input type="radio" name="q22" value="5">5</label>
-              <label><input type="radio" name="q22" value="6">6</label>
-              <label><input type="radio" name="q22" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q23" data-dimension="Strategic Structural Cognition">
-            <p class="question-text">I design contingency paths for critical steps.</p>
-            <div class="likert">
-              <label><input type="radio" name="q23" value="1">1</label>
-              <label><input type="radio" name="q23" value="2">2</label>
-              <label><input type="radio" name="q23" value="3">3</label>
-              <label><input type="radio" name="q23" value="4">4</label>
-              <label><input type="radio" name="q23" value="5">5</label>
-              <label><input type="radio" name="q23" value="6">6</label>
-              <label><input type="radio" name="q23" value="7">7</label>
-            </div>
-          </div>
-          <div class="question-row" data-question="q24" data-dimension="Strategic Structural Cognition">
-            <p class="question-text">I align daily actions with long-term architectures.</p>
-            <div class="likert">
-              <label><input type="radio" name="q24" value="1">1</label>
-              <label><input type="radio" name="q24" value="2">2</label>
-              <label><input type="radio" name="q24" value="3">3</label>
-              <label><input type="radio" name="q24" value="4">4</label>
-              <label><input type="radio" name="q24" value="5">5</label>
-              <label><input type="radio" name="q24" value="6">6</label>
-              <label><input type="radio" name="q24" value="7">7</label>
-            </div>
-          </div>
-        </section>
-
-        <div class="btn-row">
-          <button type="button" id="calculate-btn">Calculate SQS</button>
-        </div>
-        <p class="error" id="error-message"></p>
-      </form>
-
-      <div id="results">
-        <p class="score" id="total-score"></p>
-        <p class="band" id="band-text"></p>
-        <table class="subscores" aria-label="Subscores">
-          <thead>
-            <tr>
-              <th>Dimension</th>
-              <th>SQS Subscore</th>
-              <th>Strength</th>
-            </tr>
-          </thead>
-          <tbody id="subscore-body"></tbody>
-        </table>
-      </div>
+      <footer>
+        License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
+      </footer>
     </div>
   </div>
 
   <script>
-    const questions = Array.from(document.querySelectorAll('.question-row'));
+    const dimensions = [
+      { key: 'Fractal Learning', statements: [
+        'When I learn something new, I immediately see where it fits in my existing knowledge.',
+        'I connect details to a bigger picture without needing to think about it.',
+        'I reuse prior patterns to understand unfamiliar material.',
+        'I quickly map new topics onto structures I already trust.'
+      ]},
+      { key: 'Recursive Reasoning', statements: [
+        'I refine plans through cycles of small improvements.',
+        'I revisit earlier steps to keep systems coherent.',
+        'I debug processes by following feedback loops.',
+        'I can zoom out and in repeatedly without losing clarity.'
+      ]},
+      { key: 'Multidomain Flexibility', statements: [
+        'I switch between domains without losing momentum.',
+        'I apply methods from one field to solve another.',
+        'I explain ideas using analogies from different disciplines.',
+        'I integrate information from varied sources smoothly.'
+      ]},
+      { key: 'System Creation', statements: [
+        'I design reusable frameworks instead of one-off solutions.',
+        'I create templates that others can adapt.',
+        'I map architectures before implementing details.',
+        'I document structures so they can scale.'
+      ]},
+      { key: 'Parallel Hypothesis Management', statements: [
+        'I hold multiple explanations until evidence is clear.',
+        'I run small tests to compare competing ideas.',
+        'I track alternative scenarios without confusion.',
+        'I update likelihoods as new data arrives.'
+      ]},
+      { key: 'Strategic Structural Cognition', statements: [
+        'I plan with milestones and dependencies in mind.',
+        'I anticipate downstream effects of choices.',
+        'I design contingency paths for critical steps.',
+        'I align daily actions with long-term architecture.'
+      ]},
+    ];
 
-    function getAnswers() {
+    const abilityTasks = [
+      { key: 'Fractal Learning', tasks: [
+        { id: 'FL-1', prompt: 'Pattern Completion: A, C, F, J, ?', type: 'radio', options: ['K', 'L', 'M', 'N'], answer: 'N', explanation: 'Pattern increments +1, +2, +3, +4 letters giving N.' },
+        { id: 'FL-2', prompt: 'Rule Extraction: Mapping (1→2), (2→4), (3→8), (4→16). Output for 5?', type: 'number', answer: 32, explanation: 'Doubling pattern: 2^n.' }
+      ]},
+      { key: 'Recursive Reasoning', tasks: [
+        { id: 'RR-1', prompt: 'Function nesting: f(n)=2n+1. What is f(f(3))?', type: 'number', answer: 15, explanation: 'f(3)=7, f(7)=15.' },
+        { id: 'RR-2', prompt: 'Iterative rule: start at 1, add 3 for 4 steps. Final value?', type: 'radio', options: ['7', '10', '13'], answer: '13', explanation: '1 + 3 four times = 13.' }
+      ]},
+      { key: 'Multidomain Flexibility', tasks: [
+        { id: 'MF-1', prompt: 'Analogy: Inverse-square law (impact falls with distance squared). Which economic pattern is analogous?', type: 'radio', options: ['Fixed tax rate', 'Network effects increasing value', 'Diminishing marketing influence with audience distance'], answer: 'Diminishing marketing influence with audience distance', explanation: 'Both decline with distance/dispersion squared-like drop-off.' },
+        { id: 'MF-2', prompt: 'Structural Rule Transfer: Bottleneck in production line. Which scenario shares the same issue?', type: 'radio', options: ['A fast broadband network', 'A software pipeline slowed by a single slow API call', 'Parallel highways with light traffic'], answer: 'A software pipeline slowed by a single slow API call', explanation: 'Single slow stage throttles throughput in both.' }
+      ]},
+      { key: 'System Creation', tasks: [
+        { id: 'SC-1', prompt: 'Pipeline ordering: Which order is most logical?', type: 'radio', options: ['Process → Store → Validate → Notify', 'Collect Input → Validate → Process → Store → Notify User', 'Validate → Notify → Collect Input → Store'], answer: 'Collect Input → Validate → Process → Store → Notify User', explanation: 'Standard intake, quality, execution, persistence, communication.' },
+        { id: 'SC-2', prompt: 'Architecture gap: User → ? → Application → Database. What fits best?', type: 'radio', options: ['Interface / Front-end', 'Compiler', 'File System'], answer: 'Interface / Front-end', explanation: 'Interface layer sits between user and app.' }
+      ]},
+      { key: 'Parallel Hypothesis Management', tasks: [
+        { id: 'PH-1', prompt: 'Three hypotheses for device failure: (A) Battery dead, (B) Screen broken, (C) Software bug. New info: device lights up and vibrates. Which is ruled out?', type: 'radio', options: ['Battery dead', 'Screen broken', 'Software bug'], answer: 'Battery dead', explanation: 'Power-dependent signals show battery is fine.' },
+        { id: 'PH-2', prompt: 'Hypotheses: H1 network outage, H2 misconfigured DNS. New data: ping IP works but domain does not resolve. Which gains support?', type: 'radio', options: ['Network outage (H1)', 'Misconfigured DNS (H2)'], answer: 'Misconfigured DNS (H2)', explanation: 'IP works meaning network fine; DNS likely issue.' }
+      ]},
+      { key: 'Strategic Structural Cognition', tasks: [
+        { id: 'SSC-1', prompt: 'Goal: launch feature reliably. Which action chain is best?', type: 'radio', options: ['Build fast → Release to all → Write tests later', 'Prototype → Test suite → Gradual rollout → Monitor → Full launch', 'Skip monitoring → Launch → Patch if needed'], answer: 'Prototype → Test suite → Gradual rollout → Monitor → Full launch', explanation: 'Structured risk-managed sequence.' },
+        { id: 'SSC-2', prompt: 'Network: nodes A-B-C-D-E with links A-B, B-C, C-D, D-E, B-D. Removing which node disrupts most?', type: 'radio', options: ['A', 'B', 'C', 'E'], answer: 'C', explanation: 'C bridges B to D/E after removing, causing split paths.' }
+      ]}
+    ];
+
+      let selfScores = null;
+      let abilityScores = null;
+
+    function buildSelfAssessment() {
+      const container = document.getElementById('self-questions');
+      container.innerHTML = '';
+      let qIndex = 1;
+      dimensions.forEach(dim => {
+        const block = document.createElement('div');
+        block.className = 'question-block';
+        const title = document.createElement('h3');
+        title.textContent = dim.key;
+        block.appendChild(title);
+        dim.statements.forEach(statement => {
+          const row = document.createElement('div');
+          row.className = 'question-row';
+          const text = document.createElement('p');
+          text.className = 'question-text';
+          text.textContent = statement;
+          const likert = document.createElement('div');
+          likert.className = 'likert';
+          for (let i = 1; i <= 7; i++) {
+            const label = document.createElement('label');
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = `q${qIndex}`;
+            input.value = String(i);
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(String(i)));
+            likert.appendChild(label);
+          }
+          row.dataset.dimension = dim.key;
+          row.dataset.question = `q${qIndex}`;
+          row.appendChild(text);
+          row.appendChild(likert);
+          block.appendChild(row);
+          qIndex++;
+        });
+        container.appendChild(block);
+      });
+    }
+
+    function buildAbilityTasks() {
+      const container = document.getElementById('ability-tasks');
+      container.innerHTML = '';
+      abilityTasks.forEach(dim => {
+        const section = document.createElement('div');
+        section.className = 'question-block';
+        const title = document.createElement('h3');
+        title.textContent = dim.key;
+        section.appendChild(title);
+        dim.tasks.forEach(task => {
+          const taskEl = document.createElement('div');
+          taskEl.className = 'task';
+          const label = document.createElement('p');
+          label.innerHTML = `<strong>${task.id}</strong> — ${task.prompt}`;
+          taskEl.appendChild(label);
+          if (task.type === 'radio') {
+            task.options.forEach(opt => {
+              const optLabel = document.createElement('label');
+              optLabel.style.display = 'block';
+              const input = document.createElement('input');
+              input.type = 'radio';
+              input.name = task.id;
+              input.value = opt;
+              optLabel.appendChild(input);
+              optLabel.appendChild(document.createTextNode(' ' + opt));
+              taskEl.appendChild(optLabel);
+            });
+          } else if (task.type === 'number') {
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.name = task.id;
+            input.placeholder = 'Enter number';
+            input.style.width = '140px';
+            taskEl.appendChild(input);
+          }
+          section.appendChild(taskEl);
+        });
+        container.appendChild(section);
+      });
+    }
+
+    function collectSelfAssessmentAnswers() {
+      const rows = Array.from(document.querySelectorAll('#self-questions .question-row'));
       const answers = [];
-      for (const row of questions) {
+      for (const row of rows) {
         const name = row.dataset.question;
         const dimension = row.dataset.dimension;
         const selected = row.querySelector(`input[name="${name}"]:checked`);
-        if (!selected) {
-          return { complete: false, answers: null };
-        }
+        if (!selected) return { complete: false, answers: [] };
         answers.push({ dimension, value: Number(selected.value) });
       }
       return { complete: true, answers };
     }
 
-    function convertToSqs(mean) {
+    function computeSelfAssessmentScores() {
+      const { complete, answers } = collectSelfAssessmentAnswers();
+      if (!complete) return null;
+      const totals = {};
+      const counts = {};
+      let sum = 0;
+      answers.forEach(({ dimension, value }) => {
+        totals[dimension] = (totals[dimension] || 0) + value;
+        counts[dimension] = (counts[dimension] || 0) + 1;
+        sum += value;
+      });
+      const overallMean = sum / answers.length;
+      const totalScore = mapMeanToSqs(overallMean);
+      const dimensionScores = Object.keys(totals).map(dim => {
+        const mean = totals[dim] / counts[dim];
+        return { dimension: dim, score: mapMeanToSqs(mean) };
+      });
+      return { totalScore, dimensionScores };
+    }
+
+    function collectAbilityAnswers() {
+      const tasks = abilityTasks.flatMap(dim => dim.tasks);
+      const answers = [];
+      for (const task of tasks) {
+        if (task.type === 'radio') {
+          const selected = document.querySelector(`input[name="${task.id}"]:checked`);
+          if (!selected) return { complete: false, answers: [] };
+          answers.push({ task, value: selected.value });
+        } else if (task.type === 'number') {
+          const input = document.querySelector(`input[name="${task.id}"]`);
+          if (!input || input.value === '') return { complete: false, answers: [] };
+          answers.push({ task, value: Number(input.value) });
+        }
+      }
+      return { complete: true, answers };
+    }
+
+    function computeAbilityScores() {
+      const { complete, answers } = collectAbilityAnswers();
+      if (!complete) return null;
+      const dimTotals = {};
+      answers.forEach(entry => {
+        const { task, value } = entry;
+        const correct = task.answer;
+        const isCorrect = typeof correct === 'number' ? Number(value) === correct : String(value) === String(correct);
+        const points = isCorrect ? 5 : 0;
+        dimTotals[task.dimension || findDimensionForTask(task.id)] = (dimTotals[task.dimension || findDimensionForTask(task.id)] || 0) + points;
+      });
+
+      const dimensionScores = abilityTasks.map(dim => {
+        const points = dimTotals[dim.key] || 0;
+        const normalized = points / 10;
+        return { dimension: dim.key, score: Math.round(normalized * 300) };
+      });
+
+      const totalPoints = Object.values(dimTotals).reduce((a, b) => a + b, 0);
+      const normalizedTotal = totalPoints / 60;
+      const totalScore = Math.round(normalizedTotal * 300);
+      return { totalScore, dimensionScores };
+    }
+
+    function findDimensionForTask(taskId) {
+      for (const dim of abilityTasks) {
+        if (dim.tasks.some(t => t.id === taskId)) return dim.key;
+      }
+      return '';
+    }
+
+    function mapMeanToSqs(mean) {
       const normalized = (mean - 1) / 6;
       return Math.round(normalized * 300);
     }
@@ -579,84 +465,92 @@
       if (score <= 49) return 'Basic — Performs simple tasks with minimal abstraction.';
       if (score <= 99) return 'Operational — Good task-level intelligence, limited systemic reasoning.';
       if (score <= 149) return 'Advanced Cognitive — Solid analytical capacity and problem-solving.';
-      if (score <= 199) return 'Systems Architect — Capable of designing layered structures and pipelines.';
+      if (score <= 199) return 'Systems Architect — Can design layered structures and pipelines.';
       if (score <= 249) return 'Meta-Systems — Integrates multiple domains into unified architectures.';
       return 'AGI-Adjacent — Rare structural cognition; creates new frameworks and meta-systems.';
     }
 
-    function strengthLabel(score) {
-      if (score <= 99) return 'Emerging';
-      if (score <= 149) return 'Developing';
-      if (score <= 199) return 'Solid';
-      if (score <= 249) return 'Strong';
-      return 'Exceptional';
-    }
-
-    function computeScores(answerList) {
-      const totals = {};
-      const counts = {};
-      let sum = 0;
-      answerList.forEach(({ dimension, value }) => {
-        sum += value;
-        totals[dimension] = (totals[dimension] || 0) + value;
-        counts[dimension] = (counts[dimension] || 0) + 1;
-      });
-
-      const overallMean = sum / answerList.length;
-      const totalScore = convertToSqs(overallMean);
-
-      const dimensionScores = Object.keys(totals).map((dimension) => {
-        const mean = totals[dimension] / counts[dimension];
-        return {
-          dimension,
-          mean,
-          score: convertToSqs(mean),
-        };
-      });
-
-      return { totalScore, dimensionScores };
-    }
-
-    function renderResults(scores) {
-      const resultsEl = document.getElementById('results');
-      const totalEl = document.getElementById('total-score');
-      const bandEl = document.getElementById('band-text');
-      const tbody = document.getElementById('subscore-body');
-
-      totalEl.textContent = `Your SQS score: ${scores.totalScore} / 300`;
+    function updateSelfAssessmentResultUI(scores) {
+      const totalEl = document.getElementById('self-total');
+      const bandEl = document.getElementById('self-band');
+      totalEl.textContent = `${scores.totalScore} / 300`;
       bandEl.textContent = bandForScore(scores.totalScore);
-
-      tbody.innerHTML = '';
-      scores.dimensionScores
-        .sort((a, b) => a.dimension.localeCompare(b.dimension))
-        .forEach(({ dimension, score }) => {
-          const row = document.createElement('tr');
-          const strength = strengthLabel(score);
-          row.innerHTML = `
-            <td>${dimension}</td>
-            <td>${score} / 300</td>
-            <td>${strength}</td>
-          `;
-          tbody.appendChild(row);
-        });
-
-      resultsEl.style.display = 'block';
-      resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      selfScores = scores;
+      document.getElementById('self-success').textContent = 'Self-assessment calculated.';
     }
 
-    document.getElementById('calculate-btn').addEventListener('click', () => {
-      const errorEl = document.getElementById('error-message');
-      errorEl.textContent = '';
+    function updateAbilityResultUI(scores) {
+      const totalEl = document.getElementById('ability-total');
+      const bandEl = document.getElementById('ability-band');
+      totalEl.textContent = `${scores.totalScore} / 300`;
+      bandEl.textContent = bandForScore(scores.totalScore);
+      abilityScores = scores;
+      document.getElementById('ability-success').textContent = 'Ability-based score calculated.';
+    }
 
-      const { complete, answers } = getAnswers();
-      if (!complete) {
-        errorEl.textContent = 'Please answer every question before calculating your SQS.';
+    function updateComparisonUI() {
+      if (!selfScores || !abilityScores) return;
+      const tbody = document.querySelector('#comparison-table tbody');
+      tbody.innerHTML = '';
+      const abilityMap = Object.fromEntries(abilityScores.dimensionScores.map(d => [d.dimension, d.score]));
+      const rows = [];
+      selfScores.dimensionScores.forEach(dim => {
+        const abilityScore = abilityMap[dim.dimension] || 0;
+        const diff = dim.score - abilityScore;
+        const label = Math.abs(diff) < 20
+          ? 'Aligned'
+          : diff >= 20
+            ? 'Self-assessment higher than ability (possible overestimation).'
+            : 'Ability higher than self-assessment (possible underestimation).';
+        rows.push({ dimension: dim.dimension, self: dim.score, ability: abilityScore, diff, label });
+      });
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${r.dimension}</td><td>${r.self}</td><td>${r.ability}</td><td>${r.diff}</td><td>${r.label}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      const diffTotal = selfScores.totalScore - abilityScores.totalScore;
+      let summary = 'Your self-view is roughly aligned with your structural performance.';
+      if (Math.abs(diffTotal) >= 20) {
+        summary = diffTotal >= 20
+          ? 'You may be overestimating your structural abilities compared to the objective tasks.'
+          : 'You may be underestimating your structural abilities; you performed stronger than you rated yourself.';
+      }
+      document.getElementById('alignment-summary').textContent = summary;
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.getElementById('calc-self').addEventListener('click', () => {
+      const err = document.getElementById('self-error');
+      const success = document.getElementById('self-success');
+      err.textContent = '';
+      success.textContent = '';
+      const scores = computeSelfAssessmentScores();
+      if (!scores) {
+        err.textContent = 'Please answer all 24 self-assessment statements.';
         return;
       }
-
-      const scores = computeScores(answers);
-      renderResults(scores);
+      updateSelfAssessmentResultUI(scores);
+      updateComparisonUI();
     });
+
+    document.getElementById('calc-ability').addEventListener('click', () => {
+      const err = document.getElementById('ability-error');
+      const success = document.getElementById('ability-success');
+      err.textContent = '';
+      success.textContent = '';
+      const scores = computeAbilityScores();
+      if (!scores) {
+        err.textContent = 'Please complete every ability task before calculating.';
+        return;
+      }
+      updateAbilityResultUI(scores);
+      updateComparisonUI();
+    });
+
+    buildSelfAssessment();
+    buildAbilityTasks();
   </script>
 </body>
 </html>
