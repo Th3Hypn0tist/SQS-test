@@ -1,110 +1,80 @@
-<!--
-  SQS — Structural Intelligence Quotient Test System
-  Includes: Self-Assessment + Ability-Based Structural Intelligence Tasks
-  License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SQS — Structural Intelligence Quotient Test</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQS Test System</title>
   <style>
     :root {
-      --page-bg: #eef2f5;
-      --card-bg: #ffffff;
-      --primary: #1f6feb;
+      --bg: #f5f7fb;
+      --card: #ffffff;
       --text: #0f172a;
       --muted: #4b5563;
+      --primary: #1f6feb;
       --border: #e5e7eb;
-      --error: #d32f2f;
-      --success: #15803d;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: var(--page-bg);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    a { color: var(--primary); text-decoration: none; }
-
-    .page { max-width: 900px; margin: 32px auto 48px auto; padding: 0 18px; }
+    .shell {
+      max-width: 960px;
+      margin: 32px auto 48px auto;
+      padding: 0 20px;
+    }
 
     .card {
-      background: var(--card-bg);
+      background: var(--card);
       border-radius: 12px;
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
       padding: 28px;
-    }
-
-    header { margin-bottom: 18px; }
-    h1 { margin: 0 0 8px 0; font-size: 28px; letter-spacing: -0.4px; }
-    h2 { margin: 0 0 6px 0; font-size: 22px; letter-spacing: -0.3px; }
-    h3 { margin: 18px 0 6px 0; font-size: 18px; }
-    p.lead { color: var(--muted); margin: 0 0 14px 0; }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    nav a {
-      padding: 8px 12px;
-      background: #e0e7ff;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #1d4ed8;
-    }
-
-    main section {
-      margin-bottom: 24px;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      background: #fbfcfe;
     }
 
-    .description { color: var(--muted); margin-top: 0; }
-
-    .question-block {
-      margin-top: 8px;
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      letter-spacing: -0.3px;
     }
 
-    .question-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      padding: 12px 0;
+    p.lead {
+      margin: 0 0 18px 0;
+      color: var(--muted);
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
 
-    .question-row:last-child { border-bottom: none; }
-    .question-text { margin: 0; }
-
-    .likert { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; min-width: 240px; }
-    .likert label { font-size: 12px; color: var(--muted); display: block; }
-    .likert input { display: block; margin: 0 auto 4px auto; }
-
-    .task {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      margin: 10px 0;
-      background: #fff;
+    .placeholder {
+      background: #f0f4fa;
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      color: var(--muted);
+      min-height: 100px;
     }
 
-    .task p { margin: 6px 0; }
+    .actions {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
 
-    .btn-row { text-align: center; margin-top: 14px; }
     button {
       background: var(--primary);
       color: #fff;
@@ -116,418 +86,154 @@
       box-shadow: 0 6px 16px rgba(31, 111, 235, 0.22);
       transition: transform 0.1s ease, box-shadow 0.2s ease;
     }
-    button:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25); }
-    button:active { transform: translateY(0); box-shadow: 0 4px 10px rgba(31, 111, 235, 0.2); }
 
-    .error { color: var(--error); text-align: center; min-height: 20px; font-weight: 700; }
-    .success { color: var(--success); text-align: center; min-height: 20px; font-weight: 700; }
-
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-    .stat-box {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      background: #fff;
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25);
     }
-    .score { font-size: 24px; margin: 0; font-weight: 700; }
-    .band { color: var(--muted); margin: 4px 0 0 0; }
 
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; }
-    th { background: #eef2f7; font-weight: 600; }
-
-    footer { margin-top: 24px; text-align: center; color: var(--muted); font-size: 13px; }
-
-    @media (max-width: 640px) {
-      .question-row { grid-template-columns: 1fr; }
-      nav { justify-content: center; }
-      nav a { width: 100%; text-align: center; }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(31, 111, 235, 0.2);
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="shell">
     <div class="card">
-      <header id="intro">
+      <header class="section-header">
         <h1>SQS — Structural Intelligence Quotient Test</h1>
-        <p class="lead">Structural Intelligence measures how a mind builds, operates, and evolves complex systems. Unlike traditional IQ, SQS focuses on structural reasoning, recursion, multidomain integration, and system design. This experimental tool combines a self-assessment with practical ability tasks and is intended for exploration, not for clinical or high-stakes evaluation.</p>
-        <nav>
-          <a href="#intro">Introduction</a>
-          <a href="#self">Self-Assessment</a>
-          <a href="#ability">Ability Test</a>
-          <a href="#results">Results & Comparison</a>
-        </nav>
+        <p class="lead">Single-page flow for introduction, self-assessment, module tasks, and results.</p>
       </header>
 
-      <main>
-        <section id="self">
-          <h2>Self-Assessment (Subjective SQS)</h2>
-          <p class="description">Rate each statement from 1 (Strongly disagree) to 7 (Strongly agree). Ten statements per dimension are sampled randomly from a 50-item bank.</p>
+      <div id="page_intro" class="page-section">
+        <h2>Introduction</h2>
+        <div id="intro_content" class="placeholder"></div>
+        <div class="actions">
+          <button type="button" id="btn_intro_continue">Continue</button>
+        </div>
+      </div>
 
-          <div id="self-questions"></div>
-          <div class="btn-row">
-            <button type="button" id="calc-self">Calculate Self-Assessment SQS</button>
-          </div>
-          <div class="error" id="self-error"></div>
-          <div class="success" id="self-success"></div>
-        </section>
+      <div id="page_self_assessment" class="page-section">
+        <h2>Self-Assessment</h2>
+        <div class="placeholder">Self-assessment content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_fl">Next</button>
+        </div>
+      </div>
 
-        <section id="ability">
-          <h2>Ability Test (Objective SQS)</h2>
-          <p class="description">Each dimension presents ten tasks drawn from a 50-task bank with balanced difficulty. Correct answers score 5 points; incorrect or blank answers score 0.</p>
-          <div id="ability-tasks"></div>
-          <div class="btn-row">
-            <button type="button" id="calc-ability">Calculate Ability-Based SQS</button>
-          </div>
-          <div class="error" id="ability-error"></div>
-          <div class="success" id="ability-success"></div>
-        </section>
+      <div id="page_test_fl" class="page-section">
+        <h2>Module: FL</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_rr">Next Module</button>
+        </div>
+      </div>
 
-        <section id="results">
-          <h2>Results & Comparison</h2>
-          <p class="description">View subjective versus objective SQS across all dimensions.</p>
-          <div class="results-grid">
-            <div class="stat-box">
-              <h3>Self-Assessment SQS</h3>
-              <p class="score" id="self-total">—</p>
-              <p class="band" id="self-band">Run the calculation to view.</p>
-            </div>
-            <div class="stat-box">
-              <h3>Ability-Based SQS</h3>
-              <p class="score" id="ability-total">—</p>
-              <p class="band" id="ability-band">Run the calculation to view.</p>
-            </div>
-            <div class="stat-box">
-              <h3>Alignment Summary</h3>
-              <p id="alignment-summary">Calculate both sections to compare.</p>
-            </div>
-          </div>
+      <div id="page_test_rr" class="page-section">
+        <h2>Module: RR</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_mf">Next Module</button>
+        </div>
+      </div>
 
-          <h3>Dimension Comparison</h3>
-          <table aria-label="Comparison table" id="comparison-table">
-            <thead>
-              <tr>
-                <th>Dimension</th>
-                <th>Subjective SQS</th>
-                <th>Ability SQS</th>
-                <th>Difference</th>
-                <th>Label</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </section>
-      </main>
+      <div id="page_test_mf" class="page-section">
+        <h2>Module: MF</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_sc">Next Module</button>
+        </div>
+      </div>
 
-      <footer>
-        License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
-      </footer>
+      <div id="page_test_sc" class="page-section">
+        <h2>Module: SC</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_ph">Next Module</button>
+        </div>
+      </div>
+
+      <div id="page_test_ph" class="page-section">
+        <h2>Module: PH</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_test_ssc">Next Module</button>
+        </div>
+      </div>
+
+      <div id="page_test_ssc" class="page-section">
+        <h2>Module: SSC</h2>
+        <div class="placeholder">Module content placeholder.</div>
+        <div class="actions">
+          <button type="button" data-next="page_results">Next Module</button>
+        </div>
+      </div>
+
+      <div id="page_results" class="page-section">
+        <h2>Results</h2>
+        <div class="placeholder">Results summary placeholder.</div>
+      </div>
     </div>
   </div>
 
   <script>
-    const dimensionMeta = [
-      { code: 'FL', name: 'Fractal Learning', file: 'tasks_fl.json' },
-      { code: 'RR', name: 'Recursive Reasoning', file: 'tasks_rr.json' },
-      { code: 'MF', name: 'Multidomain Flexibility', file: 'tasks_mf.json' },
-      { code: 'SC', name: 'System Creation', file: 'tasks_sc.json' },
-      { code: 'PH', name: 'Parallel Hypothesis Management', file: 'tasks_ph.json' },
-      { code: 'SSC', name: 'Strategic Structural Cognition', file: 'tasks_ssc.json' },
-    ];
+    let currentPage = "page_intro";
+    let returnPage = null;
 
-    let statementBank = {};
-    let taskBanks = {};
-    let selfScores = null;
-    let abilityScores = null;
-
-    function sample(array, count) {
-      const copy = [...array];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+    function showPage(id) {
+      const pages = document.querySelectorAll('.page-section');
+      pages.forEach((el) => (el.style.display = 'none'));
+      const target = document.getElementById(id);
+      if (target) {
+        target.style.display = 'block';
+        currentPage = id;
       }
-      return copy.slice(0, count);
     }
 
-    async function loadAssets() {
-      const statementPromise = fetch('statements.json').then(r => r.json());
-      const taskPromises = dimensionMeta.map(dim => fetch(dim.file).then(r => r.json().then(data => ({ code: dim.code, data }))));
-      const statementData = await statementPromise;
-      const taskData = await Promise.all(taskPromises);
-      statementBank = statementData;
-      taskData.forEach(entry => { taskBanks[entry.code] = entry.data; });
+    function goToIntro() {
+      returnPage = currentPage;
+      showPage('page_intro');
     }
 
-    function buildSelfAssessment() {
-      const container = document.getElementById('self-questions');
-      container.innerHTML = '';
-      let qIndex = 1;
-      dimensionMeta.forEach(dim => {
-        const statements = sample(statementBank[dim.name], 10);
-        const block = document.createElement('div');
-        block.className = 'question-block';
-        const title = document.createElement('h3');
-        title.textContent = dim.name;
-        block.appendChild(title);
-        statements.forEach(statement => {
-          const row = document.createElement('div');
-          row.className = 'question-row';
-          const text = document.createElement('p');
-          text.className = 'question-text';
-          text.textContent = statement;
-          const likert = document.createElement('div');
-          likert.className = 'likert';
-          for (let i = 1; i <= 7; i++) {
-            const label = document.createElement('label');
-            const input = document.createElement('input');
-            input.type = 'radio';
-            input.name = `q${qIndex}`;
-            input.value = String(i);
-            label.appendChild(input);
-            label.appendChild(document.createTextNode(String(i)));
-            likert.appendChild(label);
+    function continueTest() {
+      if (returnPage) showPage(returnPage);
+    }
+
+    function wireNavigation() {
+      document.querySelectorAll('button[data-next]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const nextId = btn.getAttribute('data-next');
+          if (nextId) {
+            showPage(nextId);
           }
-          row.dataset.dimension = dim.name;
-          row.dataset.question = `q${qIndex}`;
-          row.appendChild(text);
-          row.appendChild(likert);
-          block.appendChild(row);
-          qIndex++;
         });
-        container.appendChild(block);
       });
+
+      const introBtn = document.getElementById('btn_intro_continue');
+      if (introBtn) {
+        introBtn.addEventListener('click', () => showPage('page_self_assessment'));
+      }
     }
 
-    function pickAbilityTasks(tasks) {
-      const byDifficulty = { 1: [], 2: [], 3: [], 4: [] };
-      tasks.forEach(t => { byDifficulty[t.difficulty].push(t); });
-      const selection = [];
-      selection.push(...sample(byDifficulty[1], 2));
-      selection.push(...sample(byDifficulty[2], 2));
-      selection.push(...sample(byDifficulty[3], 2));
-      selection.push(...sample(byDifficulty[4], 2));
-      const remaining = tasks.filter(t => !selection.includes(t));
-      selection.push(...sample(remaining, 2));
-      return selection;
-    }
-
-    function buildAbilityTasks() {
-      const container = document.getElementById('ability-tasks');
-      container.innerHTML = '';
-      dimensionMeta.forEach(dim => {
-        const bank = taskBanks[dim.code] || [];
-        const chosen = pickAbilityTasks(bank).map(t => ({ ...t, dimension: dim.name }));
-        const section = document.createElement('div');
-        section.className = 'question-block';
-        const title = document.createElement('h3');
-        title.textContent = `${dim.name} — 10 tasks (balanced difficulty)`;
-        section.appendChild(title);
-        chosen.forEach(task => {
-          const taskEl = document.createElement('div');
-          taskEl.className = 'task';
-          const prompt = document.createElement('p');
-          prompt.innerHTML = `<strong>${task.id}</strong> (Difficulty ${task.difficulty}) — ${task.question}`;
-          taskEl.appendChild(prompt);
-          if (task.type === 'multiple_choice') {
-            task.options.forEach((opt, idx) => {
-              const optLabel = document.createElement('label');
-              optLabel.style.display = 'block';
-              const input = document.createElement('input');
-              input.type = 'radio';
-              input.name = task.id;
-              input.value = String(idx);
-              optLabel.appendChild(input);
-              optLabel.appendChild(document.createTextNode(' ' + opt));
-              taskEl.appendChild(optLabel);
-            });
-          } else if (task.type === 'numeric') {
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.name = task.id;
-            input.placeholder = 'Enter number';
-            input.style.width = '140px';
-            taskEl.appendChild(input);
-          }
-          section.appendChild(taskEl);
+    function loadIntro() {
+      const container = document.getElementById('intro_content');
+      if (!container) return;
+      fetch('sqs.md')
+        .then((r) => r.text())
+        .then((text) => {
+          container.innerText = text;
+        })
+        .catch(() => {
+          container.innerText = 'Unable to load introduction.';
         });
-        container.appendChild(section);
-      });
     }
 
-    function collectSelfAssessmentAnswers() {
-      const rows = Array.from(document.querySelectorAll('#self-questions .question-row'));
-      const answers = [];
-      for (const row of rows) {
-        const name = row.dataset.question;
-        const dimension = row.dataset.dimension;
-        const selected = row.querySelector(`input[name="${name}"]:checked`);
-        if (!selected) return { complete: false, answers: [] };
-        answers.push({ dimension, value: Number(selected.value) });
-      }
-      return { complete: true, answers };
-    }
-
-    function computeSelfAssessmentScores() {
-      const { complete, answers } = collectSelfAssessmentAnswers();
-      if (!complete) return null;
-      const totals = {};
-      const counts = {};
-      let sum = 0;
-      answers.forEach(({ dimension, value }) => {
-        totals[dimension] = (totals[dimension] || 0) + value;
-        counts[dimension] = (counts[dimension] || 0) + 1;
-        sum += value;
-      });
-      const overallMean = sum / answers.length;
-      const totalScore = mapMeanToSqs(overallMean);
-      const dimensionScores = Object.keys(totals).map(dim => {
-        const mean = totals[dim] / counts[dim];
-        return { dimension: dim, score: mapMeanToSqs(mean) };
-      });
-      return { totalScore, dimensionScores };
-    }
-
-    function collectAbilityAnswers() {
-      const tasks = Array.from(document.querySelectorAll('#ability-tasks .task'));
-      const answers = [];
-      for (const task of tasks) {
-        const idMatch = task.querySelector('strong');
-        if (!idMatch) continue;
-        const idText = idMatch.textContent.trim();
-        const inputs = task.querySelectorAll('input');
-        if (inputs.length && inputs[0].type === 'radio') {
-          const selected = Array.from(inputs).find(i => i.checked);
-          if (!selected) return { complete: false, answers: [] };
-          answers.push({ id: idText, value: Number(selected.value) });
-        } else if (inputs.length && inputs[0].type === 'number') {
-          const numInput = inputs[0];
-          if (numInput.value === '') return { complete: false, answers: [] };
-          answers.push({ id: idText, value: Number(numInput.value) });
-        }
-      }
-      return { complete: true, answers };
-    }
-
-    function computeAbilityScores() {
-      const { complete, answers } = collectAbilityAnswers();
-      if (!complete) return null;
-      const dimTotals = {};
-      answers.forEach(({ id, value }) => {
-        const task = findTaskById(id);
-        if (!task) return;
-        const correct = task.type === 'numeric' ? task.correctValue : task.correctIndex;
-        const isCorrect = task.type === 'numeric' ? Number(value) === Number(correct) : Number(value) === Number(correct);
-        const points = isCorrect ? 5 : 0;
-        dimTotals[task.dimension] = (dimTotals[task.dimension] || 0) + points;
-      });
-
-      const dimensionScores = dimensionMeta.map(dim => {
-        const points = dimTotals[dim.name] || 0;
-        const normalized = points / 50;
-        return { dimension: dim.name, score: Math.round(normalized * 300) };
-      });
-
-      const totalPoints = Object.values(dimTotals).reduce((a, b) => a + b, 0);
-      const normalizedTotal = totalPoints / (dimensionMeta.length * 50);
-      const totalScore = Math.round(normalizedTotal * 300);
-      return { totalScore, dimensionScores };
-    }
-
-    function findTaskById(id) {
-      for (const dim of dimensionMeta) {
-        const task = (taskBanks[dim.code] || []).find(t => t.id === id);
-        if (task) return { ...task, dimension: dim.name };
-      }
-      return null;
-    }
-
-    function mapMeanToSqs(mean) {
-      const normalized = (mean - 1) / 6;
-      return Math.round(normalized * 300);
-    }
-
-    function bandForScore(score) {
-      if (score <= 49) return 'Basic — Performs simple tasks with minimal abstraction.';
-      if (score <= 99) return 'Operational — Good task-level intelligence, limited systemic reasoning.';
-      if (score <= 149) return 'Advanced Cognitive — Solid analytical capacity and problem-solving.';
-      if (score <= 199) return 'Systems Architect — Can design layered structures and pipelines.';
-      if (score <= 249) return 'Meta-Systems — Integrates multiple domains into unified architectures.';
-      return 'AGI-Adjacent — Rare structural cognition; creates new frameworks and meta-systems.';
-    }
-
-    function updateSelfAssessmentResultUI(scores) {
-      const totalEl = document.getElementById('self-total');
-      const bandEl = document.getElementById('self-band');
-      totalEl.textContent = `${scores.totalScore} / 300`;
-      bandEl.textContent = bandForScore(scores.totalScore);
-      selfScores = scores;
-      document.getElementById('self-success').textContent = 'Self-assessment calculated.';
-      document.getElementById('self-error').textContent = '';
-      updateComparison();
-    }
-
-    function updateAbilityResultUI(scores) {
-      const totalEl = document.getElementById('ability-total');
-      const bandEl = document.getElementById('ability-band');
-      totalEl.textContent = `${scores.totalScore} / 300`;
-      bandEl.textContent = bandForScore(scores.totalScore);
-      abilityScores = scores;
-      document.getElementById('ability-success').textContent = 'Ability scores calculated.';
-      document.getElementById('ability-error').textContent = '';
-      updateComparison();
-    }
-
-    function updateComparison() {
-      const tbody = document.querySelector('#comparison-table tbody');
-      tbody.innerHTML = '';
-      if (!selfScores || !abilityScores) {
-        document.getElementById('alignment-summary').textContent = 'Calculate both sections to compare.';
-        return;
-      }
-      const alignmentTexts = [];
-      dimensionMeta.forEach(dim => {
-        const selfScore = selfScores.dimensionScores.find(d => d.dimension === dim.name)?.score || 0;
-        const abilityScore = abilityScores.dimensionScores.find(d => d.dimension === dim.name)?.score || 0;
-        const diff = selfScore - abilityScore;
-        const label = diff === 0 ? 'Aligned' : diff > 0 ? 'Self > Ability' : 'Ability > Self';
-        const row = document.createElement('tr');
-        [dim.name, `${selfScore}`, `${abilityScore}`, `${diff}`, label].forEach(text => {
-          const td = document.createElement('td');
-          td.textContent = text;
-          row.appendChild(td);
-        });
-        tbody.appendChild(row);
-        alignmentTexts.push(`${dim.name}: ${label}`);
-      });
-      document.getElementById('alignment-summary').textContent = alignmentTexts.join(' | ');
-    }
-
-    function bindButtons() {
-      document.getElementById('calc-self').addEventListener('click', () => {
-        const scores = computeSelfAssessmentScores();
-        if (!scores) {
-          document.getElementById('self-error').textContent = 'Please answer every self-assessment item.';
-          return;
-        }
-        updateSelfAssessmentResultUI(scores);
-      });
-
-      document.getElementById('calc-ability').addEventListener('click', () => {
-        const scores = computeAbilityScores();
-        if (!scores) {
-          document.getElementById('ability-error').textContent = 'Please answer every ability task.';
-          return;
-        }
-        updateAbilityResultUI(scores);
-      });
-    }
-
-    (async function init() {
-      await loadAssets();
-      buildSelfAssessment();
-      buildAbilityTasks();
-      bindButtons();
-    })();
+    window.addEventListener('DOMContentLoaded', () => {
+      showPage(currentPage);
+      wireNavigation();
+      loadIntro();
+    });
   </script>
 </body>
 </html>
