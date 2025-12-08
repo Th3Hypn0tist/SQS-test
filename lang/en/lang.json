@@ -1,0 +1,34 @@
+{
+  "languageName": "English",
+  "pageTitle": "SQS Test System",
+  "languageLabel": "Language",
+  "title": "SQS — Structural Intelligence Quotient Test",
+  "lead": "Single-page flow for introduction, self-assessment, module tasks, and results.",
+  "introHeading": "Introduction",
+  "introContinue": "Continue",
+  "selfHeading": "Self-Assessment",
+  "selfContinue": "Continue to Modules",
+  "resultsHeading": "Results",
+  "finishModule": "Finish Module",
+  "moduleTitle": "Module: {module}",
+  "loadingIntro": "Loading introduction...",
+  "introLoadError": "Unable to load introduction.",
+  "loadingTasks": "Loading tasks...",
+  "tasksLoadError": "Unable to load tasks.",
+  "missingOptions": "Task data missing options.",
+  "tableHeaders": [
+    "Domain",
+    "Self-assessment (1-7)",
+    "Ability score (0-100)"
+  ],
+  "notProvided": "Not provided",
+  "domainLabels": {
+    "fl": "FL",
+    "rr": "RR",
+    "mf": "MF",
+    "sc": "SC",
+    "ph": "PH",
+    "ssc": "SSC"
+  },
+  "selfAssessmentSuffix": "Self-Assessment"
+}

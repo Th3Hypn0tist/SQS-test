@@ -1,5 +1,5 @@
 {
-  "Fractal Learning": [
+  "fl": [
     "I see small patterns that mirror larger patterns when I study new material.",
     "I track how tiny changes ripple through a structure.",
     "I notice when a rule repeats at multiple scales.",
@@ -51,7 +51,7 @@
     "I track alternating growth and contraction in patterns.",
     "I infer missing steps using the pattern skeleton."
   ],
-  "Recursive Reasoning": [
+  "rr": [
     "I mentally run a process through several iterations without writing it down.",
     "I track how outputs become inputs across cycles.",
     "I can predict the state of a system after repeated transformations.",
@@ -103,7 +103,7 @@
     "I confirm termination conditions before running a process.",
     "I create examples to test recursion edge cases."
   ],
-  "Multidomain Flexibility": [
+  "mf": [
     "I translate structures from one field to explain another.",
     "I match relationships across unrelated topics.",
     "I build analogies that highlight structure, not content.",
@@ -155,7 +155,7 @@
     "I restate complex processes as simpler cross-domain stories.",
     "I extract reusable schemas from domain-specific cases."
   ],
-  "System Creation": [
+  "sc": [
     "I lay out components before linking them together.",
     "I confirm dependencies before starting a build.",
     "I design with future expansion in mind.",
@@ -207,7 +207,7 @@
     "I plan handoffs so responsibility is clear.",
     "I keep documentation updated as the system evolves."
   ],
-  "Parallel Hypothesis Management": [
+  "ph": [
     "I keep multiple explanations alive until evidence decides.",
     "I mark which evidence supports each idea.",
     "I avoid favoring one hypothesis without justification.",
@@ -259,7 +259,7 @@
     "I check if two hypotheses can be merged into a stronger model.",
     "I keep exploring until one explanation clearly outperforms the rest."
   ],
-  "Strategic Structural Cognition": [
+  "ssc": [
     "I forecast downstream effects before choosing a path.",
     "I map long-term dependencies when planning.",
     "I prioritize resilience when building strategies.",
