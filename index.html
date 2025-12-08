@@ -96,6 +96,56 @@
       transform: translateY(0);
       box-shadow: 0 4px 10px rgba(31, 111, 235, 0.2);
     }
+
+    .question {
+      margin-bottom: 16px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .optionButton {
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 12px;
+      box-shadow: none;
+      text-align: left;
+    }
+
+    .optionButton:hover {
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      transform: none;
+    }
+
+    .optionButton:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .responseRow {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .responseRow input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      flex: 1;
+    }
+
+    .progress {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -179,11 +229,20 @@
 
   <script>
     let currentPage = "page_intro";
-    let returnPage = null;
+
+    const sqsResults = {
+      fl: [],
+      rr: [],
+      mf: [],
+      sc: [],
+      ph: [],
+      ssc: [],
+    };
 
     function showPage(id) {
-      const pages = document.querySelectorAll('.page-section');
-      pages.forEach((el) => (el.style.display = 'none'));
+      document.querySelectorAll('.page-section').forEach((el) => {
+        el.style.display = 'none';
+      });
       const target = document.getElementById(id);
       if (target) {
         target.style.display = 'block';
@@ -191,30 +250,184 @@
       }
     }
 
-    function goToIntro() {
-      returnPage = currentPage;
-      showPage('page_intro');
+    async function loadModuleTasks(jsonUrl) {
+      const response = await fetch(jsonUrl);
+      if (!response.ok) throw new Error('Failed to load tasks');
+      const data = await response.json();
+      return Array.isArray(data) ? data : [];
     }
 
-    function continueTest() {
-      if (returnPage) showPage(returnPage);
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
 
-    function wireNavigation() {
-      document.querySelectorAll('button[data-next]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const nextId = btn.getAttribute('data-next');
-          if (nextId) {
-            showPage(nextId);
+    function takeRandom(source, count) {
+      const copy = [...source];
+      shuffle(copy);
+      return copy.slice(0, count);
+    }
+
+    function selectTenTasks(allTasks) {
+      const selected = [];
+      const remaining = [...allTasks];
+
+      for (let level = 1; level <= 4; level += 1) {
+        const matches = remaining.filter((task) => task.difficulty === level);
+        const picks = takeRandom(matches, 2);
+        selected.push(...picks);
+        picks.forEach((pick) => {
+          const idx = remaining.findIndex((t) => t.id === pick.id);
+          if (idx >= 0) remaining.splice(idx, 1);
+        });
+      }
+
+      const extras = takeRandom(remaining, 2);
+      selected.push(...extras);
+      return shuffle(selected).slice(0, 10);
+    }
+
+    class ModuleRunner {
+      constructor(moduleId, jsonUrl, nextPageId) {
+        this.moduleId = moduleId;
+        this.jsonUrl = jsonUrl;
+        this.nextPageId = nextPageId;
+        this.tasks = [];
+        this.currentIndex = 0;
+        this.container = document.querySelector(`#page_test_${moduleId} .placeholder`);
+        this.answeredIndex = -1;
+      }
+
+      async start() {
+        if (!this.container) return;
+        this.container.textContent = 'Loading tasks...';
+        try {
+          const allTasks = await loadModuleTasks(this.jsonUrl);
+          this.tasks = selectTenTasks(allTasks);
+          this.currentIndex = 0;
+          this.answeredIndex = -1;
+          this.renderCurrentTask();
+        } catch (err) {
+          this.container.textContent = 'Unable to load tasks.';
+        }
+      }
+
+      renderCurrentTask() {
+        if (!this.container || !this.tasks.length) return;
+        const task = this.tasks[this.currentIndex];
+        this.container.innerHTML = '';
+
+        const progress = document.createElement('div');
+        progress.className = 'progress';
+        progress.textContent = `Question ${this.currentIndex + 1} of ${this.tasks.length}`;
+        this.container.appendChild(progress);
+
+        const question = document.createElement('div');
+        question.className = 'question';
+        question.textContent = task.question;
+        this.container.appendChild(question);
+
+        if (task.type === 'multiple_choice' && Array.isArray(task.options)) {
+          const optionsWrapper = document.createElement('div');
+          optionsWrapper.className = 'options';
+          task.options.forEach((opt) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'optionButton';
+            btn.textContent = opt;
+            btn.addEventListener('click', () => {
+              this.disableOptions(optionsWrapper);
+              this.recordAnswer(opt);
+            });
+            optionsWrapper.appendChild(btn);
+          });
+          this.container.appendChild(optionsWrapper);
+        } else {
+          const responseRow = document.createElement('div');
+          responseRow.className = 'responseRow';
+          const input = document.createElement('input');
+          input.type = 'number';
+          input.placeholder = 'Enter your answer';
+          const submitBtn = document.createElement('button');
+          submitBtn.type = 'button';
+          submitBtn.textContent = 'Submit Answer';
+          submitBtn.addEventListener('click', () => {
+            const value = input.value.trim();
+            if (value === '') return;
+            input.disabled = true;
+            submitBtn.disabled = true;
+            this.recordAnswer(Number(value));
+          });
+          responseRow.appendChild(input);
+          responseRow.appendChild(submitBtn);
+          this.container.appendChild(responseRow);
+        }
+      }
+
+      disableOptions(wrapper) {
+        wrapper.querySelectorAll('button').forEach((btn) => {
+          btn.disabled = true;
+        });
+      }
+
+      recordAnswer(value) {
+        const task = this.tasks[this.currentIndex];
+        if (!task || this.answeredIndex === this.currentIndex) return;
+        sqsResults[this.moduleId].push({
+          taskId: task.id,
+          response: value,
+        });
+        this.answeredIndex = this.currentIndex;
+        this.showNextButton();
+      }
+
+      showNextButton() {
+        const isLast = this.currentIndex === this.tasks.length - 1;
+        const nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
+        nextBtn.textContent = isLast ? 'Next Module' : 'Next Question';
+        nextBtn.addEventListener('click', () => {
+          if (isLast) {
+            this.finishModule();
+          } else {
+            this.nextTask();
           }
         });
-      });
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+        actions.appendChild(nextBtn);
+        this.container.appendChild(actions);
+      }
 
-      const introBtn = document.getElementById('btn_intro_continue');
-      if (introBtn) {
-        introBtn.addEventListener('click', () => showPage('page_self_assessment'));
+      nextTask() {
+        if (this.currentIndex < this.tasks.length - 1) {
+          this.currentIndex += 1;
+          this.renderCurrentTask();
+        }
+      }
+
+      finishModule() {
+        if (this.nextPageId) {
+          showPage(this.nextPageId);
+          const nextModuleId = this.nextPageId.replace('page_test_', '');
+          if (modules[nextModuleId]) {
+            modules[nextModuleId].start();
+          }
+        }
       }
     }
+
+    const modules = {
+      fl: new ModuleRunner('fl', 'tasks_fl.json', 'page_test_rr'),
+      rr: new ModuleRunner('rr', 'tasks_rr.json', 'page_test_mf'),
+      mf: new ModuleRunner('mf', 'tasks_mf.json', 'page_test_sc'),
+      sc: new ModuleRunner('sc', 'tasks_sc.json', 'page_test_ph'),
+      ph: new ModuleRunner('ph', 'tasks_ph.json', 'page_test_ssc'),
+      ssc: new ModuleRunner('ssc', 'tasks_ssc.json', 'page_results'),
+    };
 
     function loadIntro() {
       const container = document.getElementById('intro_content');
@@ -229,11 +442,25 @@
         });
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    function setupFlow() {
       showPage(currentPage);
-      wireNavigation();
       loadIntro();
-    });
+
+      const introBtn = document.getElementById('btn_intro_continue');
+      if (introBtn) {
+        introBtn.addEventListener('click', () => showPage('page_self_assessment'));
+      }
+
+      const selfAssessmentBtn = document.querySelector('#page_self_assessment button');
+      if (selfAssessmentBtn) {
+        selfAssessmentBtn.addEventListener('click', () => {
+          modules.fl.start();
+          showPage('page_test_fl');
+        });
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', setupFlow);
   </script>
 </body>
 </html>
