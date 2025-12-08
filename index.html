@@ -4,204 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQS Test System</title>
-  <style>
-    :root {
-      --bg: #f7f9fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #4b5563;
-      --primary: #2563eb;
-      --border: #e5e7eb;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    .shell {
-      max-width: 960px;
-      margin: 32px auto 48px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      margin: 0 0 10px 0;
-      font-size: 28px;
-      letter-spacing: -0.3px;
-    }
-
-    p.lead {
-      margin: 0 0 18px 0;
-      color: var(--muted);
-    }
-
-    .page-section {
-      display: none;
-    }
-
-    .language-row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .language-row label {
-      font-weight: 600;
-    }
-
-    select {
-      padding: 8px 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: #fff;
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .section-header {
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .actions {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    button {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.1s ease, box-shadow 0.2s ease;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
-    }
-
-    button:active {
-      transform: translateY(0);
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-    }
-
-    .question_block {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 16px;
-      background: #fdfefe;
-    }
-
-    .question_title {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .options {
-      display: grid;
-      gap: 10px;
-    }
-
-    .optionButton {
-      background: #ffffff;
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 10px;
-      text-align: left;
-      border-radius: 8px;
-      box-shadow: none;
-    }
-
-    .optionButton.selected {
-      border-color: var(--primary);
-      background: #eef2ff;
-    }
-
-    .likert-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .likert-label {
-      flex: 1 1 240px;
-    }
-
-    .likert-options {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .likert-button {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--border);
-      padding: 8px 10px;
-      border-radius: 6px;
-      min-width: 40px;
-      text-align: center;
-    }
-
-    .likert-button.selected {
-      background: #eef2ff;
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-    }
-
-    th, td {
-      padding: 10px;
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-
-    th {
-      background: #f3f4f6;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="shell">
     <div class="card">
       <header class="section-header">
         <div class="language-row">
-          <label for="language_selector" id="language_label"></label>
-          <select id="language_selector"></select>
+          <label for="languageSelector" id="language_label"></label>
+          <select id="languageSelector">
+            <option value="en">English</option>
+            <option value="fi">Suomi</option>
+            <option value="jp">日本語</option>
+          </select>
         </div>
         <h1 id="title_main">SQS — Structural Intelligence Quotient Test</h1>
         <p class="lead" id="lead_text">Single-page flow for introduction, self-assessment, module tasks, and results.</p>
@@ -279,145 +94,21 @@
   </div>
 
   <script>
-    const LANG = {
-      en: {
-        languageName: 'English',
-        pageTitle: 'SQS Test System',
-        languageLabel: 'Language',
-        title: 'SQS — Structural Intelligence Quotient Test',
-        lead: 'Single-page flow for introduction, self-assessment, module tasks, and results.',
-        introHeading: 'Introduction',
-        introContinue: 'Continue',
-        selfHeading: 'Self-Assessment',
-        selfContinue: 'Continue to Modules',
-        resultsHeading: 'Results',
-        finishModule: 'Finish Module',
-        moduleTitle: 'Module: {module}',
-        loadingIntro: 'Loading introduction...',
-        introLoadError: 'Unable to load introduction.',
-        loadingTasks: 'Loading tasks...',
-        tasksLoadError: 'Unable to load tasks.',
-        missingOptions: 'Task data missing options.',
-        tableHeaders: ['Domain', 'Self-assessment (1-7)', 'Ability score (0-100)'],
-        notProvided: 'Not provided',
-        domainLabels: { fl: 'FL', rr: 'RR', mf: 'MF', sc: 'SC', ph: 'PH', ssc: 'SSC' },
-        selfAssessmentSuffix: 'Self-Assessment',
-        selfStatements: {
-          fl: [
-            'I quickly see how parts of a system connect together.',
-            'I can map complex ideas into simple diagrams.',
-            'I enjoy comparing different structures to find patterns.',
-            'I notice when a structure violates its own rules.',
-            'I can reconstruct a model after seeing it only briefly.',
-          ],
-          rr: [
-            'I identify the critical path in a process with ease.',
-            'I evaluate the reliability of information sources quickly.',
-            'I catch inconsistencies in arguments without much effort.',
-            'I can trace errors back to their root causes.',
-            'I anticipate where systems are most likely to fail.',
-          ],
-          mf: [
-            'I keep track of multiple constraints while planning.',
-            'I juggle several solution approaches at the same time.',
-            'I maintain focus even when details become dense.',
-            'I connect abstract concepts to practical examples.',
-            'I reorganize information to make it easier to recall.',
-          ],
-          sc: [
-            'I quickly spot sequences and progressions in data.',
-            'I understand how changing one piece affects the timeline.',
-            'I like arranging tasks in the most efficient order.',
-            'I visualize chain reactions before they occur.',
-            'I can optimize steps to save time or resources.',
-          ],
-          ph: [
-            'I learn best by experimenting with tangible examples.',
-            'I mentally simulate physical movements accurately.',
-            'I can break down physical tasks into precise steps.',
-            'I visualize spatial layouts from different angles.',
-            'I handle hands-on problem-solving confidently.',
-          ],
-          ssc: [
-            'I empathize with team dynamics while solving problems.',
-            'I communicate complex ideas in relatable ways.',
-            'I notice interpersonal signals that affect outcomes.',
-            "I adapt my approach to match the group's energy.",
-            'I encourage collaboration when tackling challenges.',
-          ],
-        },
-      },
-      es: {
-        languageName: 'Español',
-        pageTitle: 'Sistema de Prueba SQS',
-        languageLabel: 'Idioma',
-        title: 'SQS — Prueba de Cociente de Inteligencia Estructural',
-        lead: 'Flujo de una sola página para introducción, autoevaluación, módulos y resultados.',
-        introHeading: 'Introducción',
-        introContinue: 'Continuar',
-        selfHeading: 'Autoevaluación',
-        selfContinue: 'Continuar a los módulos',
-        resultsHeading: 'Resultados',
-        finishModule: 'Finalizar módulo',
-        moduleTitle: 'Módulo: {module}',
-        loadingIntro: 'Cargando introducción...',
-        introLoadError: 'No se pudo cargar la introducción.',
-        loadingTasks: 'Cargando tareas...',
-        tasksLoadError: 'No se pudieron cargar las tareas.',
-        missingOptions: 'Faltan opciones en la tarea.',
-        tableHeaders: ['Dominio', 'Autoevaluación (1-7)', 'Puntaje de habilidad (0-100)'],
-        notProvided: 'No proporcionado',
-        domainLabels: { fl: 'FL', rr: 'RR', mf: 'MF', sc: 'SC', ph: 'PH', ssc: 'SSC' },
-        selfAssessmentSuffix: 'Autoevaluación',
-        selfStatements: {
-          fl: [
-            'Veo rápidamente cómo se conectan las partes de un sistema.',
-            'Puedo plasmar ideas complejas en diagramas simples.',
-            'Disfruto comparando estructuras para encontrar patrones.',
-            'Noto cuando una estructura viola sus propias reglas.',
-            'Puedo reconstruir un modelo después de verlo brevemente.',
-          ],
-          rr: [
-            'Identifico con facilidad el camino crítico de un proceso.',
-            'Evalúo rápidamente la fiabilidad de las fuentes de información.',
-            'Detecto inconsistencias en argumentos sin mucho esfuerzo.',
-            'Puedo rastrear errores hasta sus causas raíz.',
-            'Anticipo dónde es más probable que fallen los sistemas.',
-          ],
-          mf: [
-            'Mantengo múltiples restricciones en mente al planificar.',
-            'Manejo varias soluciones a la vez.',
-            'Mantengo la concentración incluso cuando los detalles son densos.',
-            'Conecto conceptos abstractos con ejemplos prácticos.',
-            'Reorganizo la información para recordarla con facilidad.',
-          ],
-          sc: [
-            'Detecto rápidamente secuencias y progresiones en los datos.',
-            'Entiendo cómo cambiar una pieza afecta la cronología.',
-            'Me gusta ordenar tareas en el orden más eficiente.',
-            'Visualizo reacciones en cadena antes de que ocurran.',
-            'Puedo optimizar pasos para ahorrar tiempo o recursos.',
-          ],
-          ph: [
-            'Aprendo mejor experimentando con ejemplos tangibles.',
-            'Simulo mentalmente movimientos físicos con precisión.',
-            'Puedo descomponer tareas físicas en pasos precisos.',
-            'Visualizo distribuciones espaciales desde distintos ángulos.',
-            'Resuelvo problemas prácticos con confianza.',
-          ],
-          ssc: [
-            'Empatizo con la dinámica del equipo al resolver problemas.',
-            'Comunico ideas complejas de forma cercana.',
-            'Noto señales interpersonales que afectan resultados.',
-            'Adapto mi enfoque a la energía del grupo.',
-            'Fomento la colaboración al enfrentar retos.',
-          ],
-        },
-      },
+    const languageOptions = {
+      en: 'English',
+      fi: 'Suomi',
+      jp: '日本語',
     };
 
-    let currentLanguage = 'en';
-    let currentPage = "page_intro";
+    let LANG = {};
+    let defaultLang = {};
+    let statements = {};
+    let defaultStatements = {};
+
+    let currentLang = 'en';
+    let currentPage = 'page_intro';
+
+    const moduleOrder = ['fl', 'rr', 'mf', 'sc', 'ph', 'ssc'];
 
     const sqsResults = {
       fl: [],
@@ -439,16 +130,24 @@
 
     let selfScores = { fl: [], rr: [], mf: [], sc: [], ph: [], ssc: [] };
 
+    async function fetchJSON(url) {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load ${url}`);
+      return response.json();
+    }
+
     function t(key, replacements = {}) {
-      const langPack = LANG[currentLanguage] || LANG.en;
-      const value = langPack[key] ?? LANG.en[key] ?? '';
+      const langPack = Object.keys(LANG).length ? LANG : defaultLang;
+      const fallback = defaultLang;
+      const value = (langPack && typeof langPack[key] !== 'undefined' ? langPack[key] : fallback?.[key]) ?? '';
       if (typeof value !== 'string') return value;
       return Object.entries(replacements).reduce((acc, [k, v]) => acc.replace(`{${k}}`, v), value);
     }
 
     function getDomainLabel(domain) {
-      const langPack = LANG[currentLanguage] || LANG.en;
-      return langPack.domainLabels?.[domain] || domain.toUpperCase();
+      const langPack = Object.keys(LANG).length ? LANG : defaultLang;
+      const fallback = defaultLang;
+      return langPack?.domainLabels?.[domain] ?? fallback?.domainLabels?.[domain] ?? domain.toUpperCase();
     }
 
     function showPage(id) {
@@ -509,9 +208,8 @@
     }
 
     class ModuleRunner {
-      constructor(moduleId, jsonUrl, nextPageId) {
+      constructor(moduleId, nextPageId) {
         this.moduleId = moduleId;
-        this.jsonUrl = jsonUrl;
         this.nextPageId = nextPageId;
         this.tasks = [];
         this.answers = [];
@@ -522,7 +220,8 @@
         if (!this.container) return;
         this.container.innerHTML = `<div class="question_block">${t('loadingTasks')}</div>`;
         try {
-          const allTasks = await loadModuleTasks(this.jsonUrl);
+          const jsonUrl = `lang/${currentLang}/tasks_${this.moduleId}.json`;
+          const allTasks = await loadModuleTasks(jsonUrl);
           this.tasks = selectTenTasks(allTasks);
           selectedTasks[this.moduleId] = this.tasks;
           this.answers = new Array(this.tasks.length).fill(null);
@@ -580,8 +279,9 @@
       finishModule() {
         sqsResults[this.moduleId] = this.answers;
         showPage(this.nextPageId);
-        if (modules[this.nextPageId.replace('page_test_', '')]) {
-          modules[this.nextPageId.replace('page_test_', '')].start();
+        const nextModuleId = this.nextPageId.replace('page_test_', '');
+        if (modules[nextModuleId]) {
+          modules[nextModuleId].start();
         }
         if (this.nextPageId === 'page_results') {
           renderResults();
@@ -590,26 +290,26 @@
     }
 
     const modules = {
-      fl: new ModuleRunner('fl', 'tasks_fl.json', 'page_test_rr'),
-      rr: new ModuleRunner('rr', 'tasks_rr.json', 'page_test_mf'),
-      mf: new ModuleRunner('mf', 'tasks_mf.json', 'page_test_sc'),
-      sc: new ModuleRunner('sc', 'tasks_sc.json', 'page_test_ph'),
-      ph: new ModuleRunner('ph', 'tasks_ph.json', 'page_test_ssc'),
-      ssc: new ModuleRunner('ssc', 'tasks_ssc.json', 'page_results'),
+      fl: new ModuleRunner('fl', 'page_test_rr'),
+      rr: new ModuleRunner('rr', 'page_test_mf'),
+      mf: new ModuleRunner('mf', 'page_test_sc'),
+      sc: new ModuleRunner('sc', 'page_test_ph'),
+      ph: new ModuleRunner('ph', 'page_test_ssc'),
+      ssc: new ModuleRunner('ssc', 'page_results'),
     };
 
-    function loadIntro() {
+    async function loadIntroText() {
       const container = document.getElementById('intro_content');
       if (!container) return;
-      container.textContent = t('loadingIntro');
-      fetch('sqs.md')
-        .then((r) => r.text())
-        .then((text) => {
-          container.textContent = text;
-        })
-        .catch(() => {
-          container.textContent = t('introLoadError');
-        });
+      container.textContent = t('loadingIntro') || 'Loading introduction...';
+      try {
+        const response = await fetch(`lang/${currentLang}/SQS.md`);
+        if (!response.ok) throw new Error('Unable to load intro');
+        const text = await response.text();
+        container.textContent = text;
+      } catch (err) {
+        container.textContent = t('introLoadError') || 'Unable to load introduction.';
+      }
     }
 
     function renderSelfAssessment() {
@@ -617,13 +317,14 @@
       if (!container) return;
       container.innerHTML = '';
 
-      const statementsByDomain = LANG[currentLanguage]?.selfStatements || LANG.en.selfStatements;
+      moduleOrder.forEach((domain) => {
+        const statementsForDomain = statements?.[domain] ?? defaultStatements?.[domain] ?? [];
+        if (!Array.isArray(statementsForDomain) || !statementsForDomain.length) return;
 
-      Object.entries(statementsByDomain).forEach(([domain, statements]) => {
         if (!Array.isArray(selfScores[domain]) || !selfScores[domain].length) {
-          selfScores[domain] = new Array(statements.length).fill(null);
-        } else if (selfScores[domain].length < statements.length) {
-          selfScores[domain].length = statements.length;
+          selfScores[domain] = new Array(statementsForDomain.length).fill(null);
+        } else if (selfScores[domain].length < statementsForDomain.length) {
+          selfScores[domain].length = statementsForDomain.length;
           selfScores[domain] = selfScores[domain].map((v) => (typeof v === 'undefined' ? null : v));
         }
 
@@ -635,7 +336,7 @@
         title.textContent = `${getDomainLabel(domain)} ${t('selfAssessmentSuffix')}`;
         section.appendChild(title);
 
-        statements.forEach((statement, idx) => {
+        statementsForDomain.forEach((statement, idx) => {
           const row = document.createElement('div');
           row.className = 'likert-row';
 
@@ -727,7 +428,7 @@
       table.appendChild(thead);
 
       const tbody = document.createElement('tbody');
-      ['fl', 'rr', 'mf', 'sc', 'ph', 'ssc'].forEach((domain) => {
+      moduleOrder.forEach((domain) => {
         const row = document.createElement('tr');
         const domainCell = document.createElement('td');
         domainCell.textContent = getDomainLabel(domain);
@@ -747,19 +448,20 @@
     }
 
     function applyLanguage() {
-      const langPack = LANG[currentLanguage] || LANG.en;
-      document.documentElement.lang = currentLanguage;
-      document.title = langPack.pageTitle;
+      const langPack = Object.keys(LANG).length ? LANG : defaultLang;
+      if (!langPack) return;
+      document.documentElement.lang = currentLang;
+      document.title = langPack.pageTitle || '';
 
-      document.getElementById('language_label').textContent = langPack.languageLabel;
-      document.getElementById('title_main').textContent = langPack.title;
-      document.getElementById('lead_text').textContent = langPack.lead;
-      document.getElementById('intro_heading').textContent = langPack.introHeading;
-      document.getElementById('self_heading').textContent = langPack.selfHeading;
-      document.getElementById('results_heading').textContent = langPack.resultsHeading;
+      document.getElementById('language_label').textContent = langPack.languageLabel || '';
+      document.getElementById('title_main').textContent = langPack.title || '';
+      document.getElementById('lead_text').textContent = langPack.lead || '';
+      document.getElementById('intro_heading').textContent = langPack.introHeading || '';
+      document.getElementById('self_heading').textContent = langPack.selfHeading || '';
+      document.getElementById('results_heading').textContent = langPack.resultsHeading || '';
 
-      document.getElementById('btn_intro_continue').textContent = langPack.introContinue;
-      document.getElementById('btn_self_assessment_continue').textContent = langPack.selfContinue;
+      document.getElementById('btn_intro_continue').textContent = langPack.introContinue || '';
+      document.getElementById('btn_self_assessment_continue').textContent = langPack.selfContinue || '';
 
       document.querySelectorAll('#page_intro button, #page_self_assessment button').forEach((btn) => {
         btn.setAttribute('aria-label', btn.textContent);
@@ -773,35 +475,56 @@
       document
         .querySelectorAll('#page_test_fl button, #page_test_rr button, #page_test_mf button, #page_test_sc button, #page_test_ph button, #page_test_ssc button')
         .forEach((btn) => {
-          btn.textContent = langPack.finishModule;
+          btn.textContent = langPack.finishModule || '';
         });
+
+      const selector = document.getElementById('languageSelector');
+      if (selector) selector.value = currentLang;
 
       renderSelfAssessment();
     }
 
+    async function loadLang(code) {
+      currentLang = code;
+      try {
+        LANG = await fetchJSON(`lang/${code}/lang.json`);
+        if (!Object.keys(defaultLang).length && code === 'en') defaultLang = LANG;
+      } catch (err) {
+        LANG = code === 'en' ? {} : defaultLang;
+      }
+
+      await loadIntroText();
+
+      try {
+        statements = await fetchJSON(`lang/${code}/statements.json`);
+        if (!Object.keys(defaultStatements).length && code === 'en') defaultStatements = statements;
+      } catch (err) {
+        statements = code === 'en' ? {} : defaultStatements;
+      }
+
+      applyLanguage();
+    }
+
     function setupLanguageSelector() {
-      const selector = document.getElementById('language_selector');
+      const selector = document.getElementById('languageSelector');
       if (!selector) return;
       selector.innerHTML = '';
-      Object.entries(LANG).forEach(([key, value]) => {
+      Object.entries(languageOptions).forEach(([value, label]) => {
         const option = document.createElement('option');
-        option.value = key;
-        option.textContent = value.languageName;
-        if (key === currentLanguage) option.selected = true;
+        option.value = value;
+        option.textContent = label;
         selector.appendChild(option);
       });
-
+      selector.value = currentLang;
       selector.addEventListener('change', (event) => {
-        currentLanguage = event.target.value;
-        applyLanguage();
+        loadLang(event.target.value);
       });
     }
 
-    function setupFlow() {
+    async function setupFlow() {
       setupLanguageSelector();
-      applyLanguage();
+      await loadLang('en');
       showPage(currentPage);
-      loadIntro();
       attachModuleFinishHandlers();
 
       document.getElementById('btn_intro_continue')?.addEventListener('click', () => {
