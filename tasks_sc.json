@@ -1,0 +1,592 @@
+[
+  {
+    "id": "SC-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Input', 'Processor', 'Output'] into a valid pipeline.",
+    "options": [
+      "Processor → Input → Output",
+      "Input → Processor → Output",
+      "Output → Input → Processor",
+      "Processor → Output → Input"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Sense', 'Transform', 'Report'] into a valid pipeline.",
+    "options": [
+      "Transform → Sense → Report",
+      "Sense → Transform → Report",
+      "Report → Sense → Transform",
+      "Transform → Report → Sense"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Collect', 'Validate', 'Store'] into a valid pipeline.",
+    "options": [
+      "Validate → Collect → Store",
+      "Collect → Validate → Store",
+      "Store → Collect → Validate",
+      "Validate → Store → Collect"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Capture', 'Process', 'Deliver'] into a valid pipeline.",
+    "options": [
+      "Process → Capture → Deliver",
+      "Capture → Process → Deliver",
+      "Deliver → Capture → Process",
+      "Process → Deliver → Capture"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Observe', 'Filter', 'Notify'] into a valid pipeline.",
+    "options": [
+      "Filter → Observe → Notify",
+      "Observe → Filter → Notify",
+      "Notify → Observe → Filter",
+      "Filter → Notify → Observe"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Listen', 'Parse', 'Respond'] into a valid pipeline.",
+    "options": [
+      "Parse → Listen → Respond",
+      "Listen → Parse → Respond",
+      "Respond → Listen → Parse",
+      "Parse → Respond → Listen"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Request', 'Handle', 'Return'] into a valid pipeline.",
+    "options": [
+      "Handle → Request → Return",
+      "Request → Handle → Return",
+      "Return → Request → Handle",
+      "Handle → Return → Request"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Intake', 'Check', 'Emit'] into a valid pipeline.",
+    "options": [
+      "Check → Intake → Emit",
+      "Intake → Check → Emit",
+      "Emit → Intake → Check",
+      "Check → Emit → Intake"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Record', 'Compute', 'Display'] into a valid pipeline.",
+    "options": [
+      "Compute → Record → Display",
+      "Record → Compute → Display",
+      "Display → Record → Compute",
+      "Compute → Display → Record"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Arrange components ['Receive', 'Route', 'Confirm'] into a valid pipeline.",
+    "options": [
+      "Route → Receive → Confirm",
+      "Receive → Route → Confirm",
+      "Confirm → Receive → Route",
+      "Route → Confirm → Receive"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SC-11",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 1: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-12",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 2: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-13",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 3: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-14",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 4: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-15",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 5: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-16",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 6: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-17",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 7: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-18",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 8: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-19",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 9: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-20",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 10: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-21",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 11: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-22",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 12: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-23",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 13: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-24",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 14: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-25",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 15: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-26",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 16: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-27",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 17: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-28",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 18: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-29",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 19: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-30",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Core C feeds A and B. A must precede D, B precedes E. Scenario 20: which completion order respects dependencies?",
+    "options": [
+      "C, A, B, D, E",
+      "C, B, A, E, D",
+      "A, C, B, D, E",
+      "C, A, D, B, E"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-31",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 1: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-32",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 2: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-33",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 3: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-34",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 4: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-35",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 5: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-36",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 6: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-37",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 7: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-38",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 8: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-39",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 9: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-40",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Activation tree 10: H depends on F and G; F on D and E; D on B and C; B on A. How many nodes must be ready before H?",
+    "correctValue": 8
+  },
+  {
+    "id": "SC-41",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 1: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-42",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 2: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-43",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 3: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-44",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 4: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-45",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 5: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-46",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 6: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-47",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 7: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-48",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 8: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-49",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 9: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SC-50",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Dynamic constraint 10: if X fails, backup XB needs Y and Z refreshed; Y refresh pauses Z. Choose the correct order.",
+    "options": [
+      "Pause Z, refresh Y, refresh Z, activate XB",
+      "Refresh Y, activate XB, refresh Z",
+      "Activate XB, refresh Y, refresh Z",
+      "Refresh Z, refresh Y, activate XB"
+    ],
+    "correctIndex": 0
+  }
+]

@@ -1,0 +1,412 @@
+[
+  {
+    "id": "RR-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 2. Result?",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 3. Result?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 4. Result?",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 5. Result?",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 6. Result?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 7. Result?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 8. Result?",
+    "options": [
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 9. Result?",
+    "options": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 10. Result?",
+    "options": [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Iterate f(x)=x+2 for 3 steps starting at 11. Result?",
+    "options": [
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "RR-11",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 7; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-12",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 8; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 25
+  },
+  {
+    "id": "RR-13",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 9; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 65
+  },
+  {
+    "id": "RR-14",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 3; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-15",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 4; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-16",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 5; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 33
+  },
+  {
+    "id": "RR-17",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 6; rules even→half+3, even→half+3, even→half+3. Final value?",
+    "correctValue": 6
+  },
+  {
+    "id": "RR-18",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 7; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-19",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 8; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 25
+  },
+  {
+    "id": "RR-20",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 9; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 65
+  },
+  {
+    "id": "RR-21",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 3; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-22",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 4; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-23",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 5; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 33
+  },
+  {
+    "id": "RR-24",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 6; rules even→half+3, even→half+3, even→half+3. Final value?",
+    "correctValue": 6
+  },
+  {
+    "id": "RR-25",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 7; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-26",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 8; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 25
+  },
+  {
+    "id": "RR-27",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 9; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 65
+  },
+  {
+    "id": "RR-28",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 3; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-29",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 4; rules even→half+3, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 17
+  },
+  {
+    "id": "RR-30",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "State machine start 5; rules odd→double−1, odd→double−1, odd→double−1. Final value?",
+    "correctValue": 33
+  },
+  {
+    "id": "RR-31",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 3 with mod-3 rules. Final value?",
+    "correctValue": 45
+  },
+  {
+    "id": "RR-32",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 4 with mod-3 rules. Final value?",
+    "correctValue": 33
+  },
+  {
+    "id": "RR-33",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 5 with mod-3 rules. Final value?",
+    "correctValue": 57
+  },
+  {
+    "id": "RR-34",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 6 with mod-3 rules. Final value?",
+    "correctValue": 21
+  },
+  {
+    "id": "RR-35",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 7 with mod-3 rules. Final value?",
+    "correctValue": 10
+  },
+  {
+    "id": "RR-36",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 8 with mod-3 rules. Final value?",
+    "correctValue": 69
+  },
+  {
+    "id": "RR-37",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 9 with mod-3 rules. Final value?",
+    "correctValue": 45
+  },
+  {
+    "id": "RR-38",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 10 with mod-3 rules. Final value?",
+    "correctValue": 33
+  },
+  {
+    "id": "RR-39",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 11 with mod-3 rules. Final value?",
+    "correctValue": 81
+  },
+  {
+    "id": "RR-40",
+    "difficulty": 3,
+    "type": "numeric",
+    "question": "Recursive branching depth 4 starting at 12 with mod-3 rules. Final value?",
+    "correctValue": 57
+  },
+  {
+    "id": "RR-41",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 5. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 25
+  },
+  {
+    "id": "RR-42",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 6. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-43",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 7. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-44",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 8. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 49
+  },
+  {
+    "id": "RR-45",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 9. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 73
+  },
+  {
+    "id": "RR-46",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 10. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 73
+  },
+  {
+    "id": "RR-47",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 11. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 73
+  },
+  {
+    "id": "RR-48",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 12. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 97
+  },
+  {
+    "id": "RR-49",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 13. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 97
+  },
+  {
+    "id": "RR-50",
+    "difficulty": 4,
+    "type": "numeric",
+    "question": "Nested recursion depth 5 starting 14. Even depths add, odd depths double then adjust. Final value?",
+    "correctValue": 97
+  }
+]

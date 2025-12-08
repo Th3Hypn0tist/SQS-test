@@ -1,0 +1,532 @@
+[
+  {
+    "id": "FL-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Shape edges: triangle:3 :: hexagon:?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Letter steps: A, C, F, J, ? (gaps grow by +1)",
+    "options": [
+      "N",
+      "O",
+      "P",
+      "Q"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "FL-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Symbol echo: X, XY, XYY, XYYY, next Y count?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "FL-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Pair growth: (1→2), (2→5), (3→10), (4→17). Output for 5?",
+    "options": [
+      "24",
+      "25",
+      "26",
+      "27"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "FL-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Nested brackets: [], [()], [(){}], [(){}<>]. Next pair added?",
+    "options": [
+      "[]",
+      "()",
+      "{}",
+      "<>"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "FL-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Sequence: 1, 3, 7, 15, ? (double then +1)",
+    "options": [
+      "23",
+      "27",
+      "31",
+      "33"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "FL-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Mirror counts: ⭕, ⭕⭕, ⭕⭕⭕, step 5 has how many rings?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Split mapping: A→AB, B→BA. After ABBA, length of next string?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "FL-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Alternating add/multiply: 2, 4, 12, 14, 42, ?. Next term?",
+    "options": [
+      "44",
+      "84",
+      "126",
+      "170"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "FL-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Simple analogy: north:south :: ascend: ?",
+    "options": [
+      "climb",
+      "descend",
+      "pause",
+      "rotate"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-11",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 1: 1, 3, 5, ?. Pattern adds base then +1 each step.",
+    "correctValue": 7
+  },
+  {
+    "id": "FL-12",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 2: 2, 5, 8, ?. Pattern adds base then +1 each step.",
+    "correctValue": 11
+  },
+  {
+    "id": "FL-13",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 3: 3, 7, 11, ?. Pattern adds base then +1 each step.",
+    "correctValue": 15
+  },
+  {
+    "id": "FL-14",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 4: 4, 9, 14, ?. Pattern adds base then +1 each step.",
+    "correctValue": 19
+  },
+  {
+    "id": "FL-15",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 5: 5, 11, 17, ?. Pattern adds base then +1 each step.",
+    "correctValue": 23
+  },
+  {
+    "id": "FL-16",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 6: 6, 13, 20, ?. Pattern adds base then +1 each step.",
+    "correctValue": 27
+  },
+  {
+    "id": "FL-17",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 7: 7, 15, 23, ?. Pattern adds base then +1 each step.",
+    "correctValue": 31
+  },
+  {
+    "id": "FL-18",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 8: 8, 17, 26, ?. Pattern adds base then +1 each step.",
+    "correctValue": 35
+  },
+  {
+    "id": "FL-19",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 9: 9, 19, 29, ?. Pattern adds base then +1 each step.",
+    "correctValue": 39
+  },
+  {
+    "id": "FL-20",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 10: 10, 21, 32, ?. Pattern adds base then +1 each step.",
+    "correctValue": 43
+  },
+  {
+    "id": "FL-21",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 11: 11, 23, 35, ?. Pattern adds base then +1 each step.",
+    "correctValue": 47
+  },
+  {
+    "id": "FL-22",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 12: 12, 25, 38, ?. Pattern adds base then +1 each step.",
+    "correctValue": 51
+  },
+  {
+    "id": "FL-23",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 13: 13, 27, 41, ?. Pattern adds base then +1 each step.",
+    "correctValue": 55
+  },
+  {
+    "id": "FL-24",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 14: 14, 29, 44, ?. Pattern adds base then +1 each step.",
+    "correctValue": 59
+  },
+  {
+    "id": "FL-25",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 15: 15, 31, 47, ?. Pattern adds base then +1 each step.",
+    "correctValue": 63
+  },
+  {
+    "id": "FL-26",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 16: 16, 33, 50, ?. Pattern adds base then +1 each step.",
+    "correctValue": 67
+  },
+  {
+    "id": "FL-27",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 17: 17, 35, 53, ?. Pattern adds base then +1 each step.",
+    "correctValue": 71
+  },
+  {
+    "id": "FL-28",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 18: 18, 37, 56, ?. Pattern adds base then +1 each step.",
+    "correctValue": 75
+  },
+  {
+    "id": "FL-29",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 19: 19, 39, 59, ?. Pattern adds base then +1 each step.",
+    "correctValue": 79
+  },
+  {
+    "id": "FL-30",
+    "difficulty": 2,
+    "type": "numeric",
+    "question": "Layered growth 20: 20, 41, 62, ?. Pattern adds base then +1 each step.",
+    "correctValue": 83
+  },
+  {
+    "id": "FL-31",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 1: start 3, then ×2+1, then ×2−1. Next value?",
+    "options": [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-32",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 2: start 4, then ×2+2, then ×2−2. Next value?",
+    "options": [
+      "20",
+      "22",
+      "24",
+      "26"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-33",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 3: start 5, then ×2+3, then ×2−3. Next value?",
+    "options": [
+      "26",
+      "29",
+      "32",
+      "35"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-34",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 4: start 6, then ×2+4, then ×2−4. Next value?",
+    "options": [
+      "32",
+      "36",
+      "40",
+      "44"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-35",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 5: start 7, then ×2+5, then ×2−5. Next value?",
+    "options": [
+      "38",
+      "43",
+      "48",
+      "53"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-36",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 6: start 8, then ×2+6, then ×2−6. Next value?",
+    "options": [
+      "44",
+      "50",
+      "56",
+      "62"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-37",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 7: start 9, then ×2+7, then ×2−7. Next value?",
+    "options": [
+      "50",
+      "57",
+      "64",
+      "71"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-38",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 8: start 10, then ×2+8, then ×2−8. Next value?",
+    "options": [
+      "56",
+      "64",
+      "72",
+      "80"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-39",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 9: start 11, then ×2+9, then ×2−9. Next value?",
+    "options": [
+      "62",
+      "71",
+      "80",
+      "89"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-40",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Hybrid rule 10: start 12, then ×2+10, then ×2−10. Next value?",
+    "options": [
+      "68",
+      "78",
+      "88",
+      "98"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-41",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [1, 3, 6, 10] then switch: subtract 0, add 2. Next value?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-42",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [2, 5, 10, 17] then switch: subtract 1, add 4. Next value?",
+    "options": [
+      "18",
+      "20",
+      "22",
+      "24"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-43",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [3, 7, 14, 24] then switch: subtract 2, add 6. Next value?",
+    "options": [
+      "25",
+      "28",
+      "31",
+      "34"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-44",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [4, 9, 18, 31] then switch: subtract 3, add 8. Next value?",
+    "options": [
+      "32",
+      "36",
+      "40",
+      "44"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-45",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [5, 11, 22, 38] then switch: subtract 4, add 10. Next value?",
+    "options": [
+      "39",
+      "44",
+      "49",
+      "54"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-46",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [6, 13, 26, 45] then switch: subtract 5, add 12. Next value?",
+    "options": [
+      "46",
+      "52",
+      "58",
+      "64"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-47",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [7, 15, 30, 52] then switch: subtract 6, add 14. Next value?",
+    "options": [
+      "53",
+      "60",
+      "67",
+      "74"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-48",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [8, 17, 34, 59] then switch: subtract 7, add 16. Next value?",
+    "options": [
+      "60",
+      "68",
+      "76",
+      "84"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-49",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [9, 19, 38, 66] then switch: subtract 8, add 18. Next value?",
+    "options": [
+      "67",
+      "76",
+      "85",
+      "94"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "FL-50",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Increment chain [10, 21, 42, 73] then switch: subtract 9, add 20. Next value?",
+    "options": [
+      "74",
+      "84",
+      "94",
+      "104"
+    ],
+    "correctIndex": 1
+  }
+]
