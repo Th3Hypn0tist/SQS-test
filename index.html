@@ -1,5 +1,5 @@
 <!--
-  SQS — Structural Intelligence Quotient Test
+  SQS — Structural Intelligence Quotient Test System
   Includes: Self-Assessment + Ability-Based Structural Intelligence Tasks
   License: CC BY-ND 4.0 — Sharing allowed with attribution; no modifications permitted.
 -->
@@ -162,7 +162,7 @@
       <main>
         <section id="self">
           <h2>Self-Assessment (Subjective SQS)</h2>
-          <p class="description">Rate each statement from 1 (Strongly disagree) to 7 (Strongly agree). Please answer all items.</p>
+          <p class="description">Rate each statement from 1 (Strongly disagree) to 7 (Strongly agree). Ten statements per dimension are sampled randomly from a 50-item bank.</p>
 
           <div id="self-questions"></div>
           <div class="btn-row">
@@ -174,7 +174,7 @@
 
         <section id="ability">
           <h2>Ability Test (Objective SQS)</h2>
-          <p class="description">Complete each task. Correct answers score 5 points; incorrect or blank answers score 0.</p>
+          <p class="description">Each dimension presents ten tasks drawn from a 50-task bank with balanced difficulty. Correct answers score 5 points; incorrect or blank answers score 0.</p>
           <div id="ability-tasks"></div>
           <div class="btn-row">
             <button type="button" id="calc-ability">Calculate Ability-Based SQS</button>
@@ -226,86 +226,50 @@
   </div>
 
   <script>
-    const dimensions = [
-      { key: 'Fractal Learning', statements: [
-        'When I learn something new, I immediately see where it fits in my existing knowledge.',
-        'I connect details to a bigger picture without needing to think about it.',
-        'I reuse prior patterns to understand unfamiliar material.',
-        'I quickly map new topics onto structures I already trust.'
-      ]},
-      { key: 'Recursive Reasoning', statements: [
-        'I refine plans through cycles of small improvements.',
-        'I revisit earlier steps to keep systems coherent.',
-        'I debug processes by following feedback loops.',
-        'I can zoom out and in repeatedly without losing clarity.'
-      ]},
-      { key: 'Multidomain Flexibility', statements: [
-        'I switch between domains without losing momentum.',
-        'I apply methods from one field to solve another.',
-        'I explain ideas using analogies from different disciplines.',
-        'I integrate information from varied sources smoothly.'
-      ]},
-      { key: 'System Creation', statements: [
-        'I design reusable frameworks instead of one-off solutions.',
-        'I create templates that others can adapt.',
-        'I map architectures before implementing details.',
-        'I document structures so they can scale.'
-      ]},
-      { key: 'Parallel Hypothesis Management', statements: [
-        'I hold multiple explanations until evidence is clear.',
-        'I run small tests to compare competing ideas.',
-        'I track alternative scenarios without confusion.',
-        'I update likelihoods as new data arrives.'
-      ]},
-      { key: 'Strategic Structural Cognition', statements: [
-        'I plan with milestones and dependencies in mind.',
-        'I anticipate downstream effects of choices.',
-        'I design contingency paths for critical steps.',
-        'I align daily actions with long-term architecture.'
-      ]},
+    const dimensionMeta = [
+      { code: 'FL', name: 'Fractal Learning', file: 'tasks_fl.json' },
+      { code: 'RR', name: 'Recursive Reasoning', file: 'tasks_rr.json' },
+      { code: 'MF', name: 'Multidomain Flexibility', file: 'tasks_mf.json' },
+      { code: 'SC', name: 'System Creation', file: 'tasks_sc.json' },
+      { code: 'PH', name: 'Parallel Hypothesis Management', file: 'tasks_ph.json' },
+      { code: 'SSC', name: 'Strategic Structural Cognition', file: 'tasks_ssc.json' },
     ];
 
-    const abilityTasks = [
-      { key: 'Fractal Learning', tasks: [
-        { id: 'FL-1', prompt: 'Pattern Completion: A, C, F, J, ?', type: 'radio', options: ['K', 'L', 'M', 'N'], answer: 'N', explanation: 'Pattern increments +1, +2, +3, +4 letters giving N.' },
-        { id: 'FL-2', prompt: 'Rule Extraction: Mapping (1→2), (2→4), (3→8), (4→16). Output for 5?', type: 'number', answer: 32, explanation: 'Doubling pattern: 2^n.' }
-      ]},
-      { key: 'Recursive Reasoning', tasks: [
-        { id: 'RR-1', prompt: 'Function nesting: f(n)=2n+1. What is f(f(3))?', type: 'number', answer: 15, explanation: 'f(3)=7, f(7)=15.' },
-        { id: 'RR-2', prompt: 'Iterative rule: start at 1, add 3 for 4 steps. Final value?', type: 'radio', options: ['7', '10', '13'], answer: '13', explanation: '1 + 3 four times = 13.' }
-      ]},
-      { key: 'Multidomain Flexibility', tasks: [
-        { id: 'MF-1', prompt: 'Analogy: Inverse-square law (impact falls with distance squared). Which economic pattern is analogous?', type: 'radio', options: ['Fixed tax rate', 'Network effects increasing value', 'Diminishing marketing influence with audience distance'], answer: 'Diminishing marketing influence with audience distance', explanation: 'Both decline with distance/dispersion squared-like drop-off.' },
-        { id: 'MF-2', prompt: 'Structural Rule Transfer: Bottleneck in production line. Which scenario shares the same issue?', type: 'radio', options: ['A fast broadband network', 'A software pipeline slowed by a single slow API call', 'Parallel highways with light traffic'], answer: 'A software pipeline slowed by a single slow API call', explanation: 'Single slow stage throttles throughput in both.' }
-      ]},
-      { key: 'System Creation', tasks: [
-        { id: 'SC-1', prompt: 'Pipeline ordering: Which order is most logical?', type: 'radio', options: ['Process → Store → Validate → Notify', 'Collect Input → Validate → Process → Store → Notify User', 'Validate → Notify → Collect Input → Store'], answer: 'Collect Input → Validate → Process → Store → Notify User', explanation: 'Standard intake, quality, execution, persistence, communication.' },
-        { id: 'SC-2', prompt: 'Architecture gap: User → ? → Application → Database. What fits best?', type: 'radio', options: ['Interface / Front-end', 'Compiler', 'File System'], answer: 'Interface / Front-end', explanation: 'Interface layer sits between user and app.' }
-      ]},
-      { key: 'Parallel Hypothesis Management', tasks: [
-        { id: 'PH-1', prompt: 'Three hypotheses for device failure: (A) Battery dead, (B) Screen broken, (C) Software bug. New info: device lights up and vibrates. Which is ruled out?', type: 'radio', options: ['Battery dead', 'Screen broken', 'Software bug'], answer: 'Battery dead', explanation: 'Power-dependent signals show battery is fine.' },
-        { id: 'PH-2', prompt: 'Hypotheses: H1 network outage, H2 misconfigured DNS. New data: ping IP works but domain does not resolve. Which gains support?', type: 'radio', options: ['Network outage (H1)', 'Misconfigured DNS (H2)'], answer: 'Misconfigured DNS (H2)', explanation: 'IP works meaning network fine; DNS likely issue.' }
-      ]},
-      { key: 'Strategic Structural Cognition', tasks: [
-        { id: 'SSC-1', prompt: 'Goal: launch feature reliably. Which action chain is best?', type: 'radio', options: ['Build fast → Release to all → Write tests later', 'Prototype → Test suite → Gradual rollout → Monitor → Full launch', 'Skip monitoring → Launch → Patch if needed'], answer: 'Prototype → Test suite → Gradual rollout → Monitor → Full launch', explanation: 'Structured risk-managed sequence.' },
-        { id: 'SSC-2', prompt: 'Network: nodes A-B-C-D-E with links A-B, B-C, C-D, D-E, B-D. Removing which node disrupts most?', type: 'radio', options: ['A', 'B', 'C', 'E'], answer: 'C', explanation: 'C bridges B to D/E after removing, causing split paths.' }
-      ]}
-    ];
+    let statementBank = {};
+    let taskBanks = {};
+    let selfScores = null;
+    let abilityScores = null;
 
-      let selfScores = null;
-      let abilityScores = null;
+    function sample(array, count) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy.slice(0, count);
+    }
+
+    async function loadAssets() {
+      const statementPromise = fetch('statements.json').then(r => r.json());
+      const taskPromises = dimensionMeta.map(dim => fetch(dim.file).then(r => r.json().then(data => ({ code: dim.code, data }))));
+      const statementData = await statementPromise;
+      const taskData = await Promise.all(taskPromises);
+      statementBank = statementData;
+      taskData.forEach(entry => { taskBanks[entry.code] = entry.data; });
+    }
 
     function buildSelfAssessment() {
       const container = document.getElementById('self-questions');
       container.innerHTML = '';
       let qIndex = 1;
-      dimensions.forEach(dim => {
+      dimensionMeta.forEach(dim => {
+        const statements = sample(statementBank[dim.name], 10);
         const block = document.createElement('div');
         block.className = 'question-block';
         const title = document.createElement('h3');
-        title.textContent = dim.key;
+        title.textContent = dim.name;
         block.appendChild(title);
-        dim.statements.forEach(statement => {
+        statements.forEach(statement => {
           const row = document.createElement('div');
           row.className = 'question-row';
           const text = document.createElement('p');
@@ -323,7 +287,7 @@
             label.appendChild(document.createTextNode(String(i)));
             likert.appendChild(label);
           }
-          row.dataset.dimension = dim.key;
+          row.dataset.dimension = dim.name;
           row.dataset.question = `q${qIndex}`;
           row.appendChild(text);
           row.appendChild(likert);
@@ -334,34 +298,49 @@
       });
     }
 
+    function pickAbilityTasks(tasks) {
+      const byDifficulty = { 1: [], 2: [], 3: [], 4: [] };
+      tasks.forEach(t => { byDifficulty[t.difficulty].push(t); });
+      const selection = [];
+      selection.push(...sample(byDifficulty[1], 2));
+      selection.push(...sample(byDifficulty[2], 2));
+      selection.push(...sample(byDifficulty[3], 2));
+      selection.push(...sample(byDifficulty[4], 2));
+      const remaining = tasks.filter(t => !selection.includes(t));
+      selection.push(...sample(remaining, 2));
+      return selection;
+    }
+
     function buildAbilityTasks() {
       const container = document.getElementById('ability-tasks');
       container.innerHTML = '';
-      abilityTasks.forEach(dim => {
+      dimensionMeta.forEach(dim => {
+        const bank = taskBanks[dim.code] || [];
+        const chosen = pickAbilityTasks(bank).map(t => ({ ...t, dimension: dim.name }));
         const section = document.createElement('div');
         section.className = 'question-block';
         const title = document.createElement('h3');
-        title.textContent = dim.key;
+        title.textContent = `${dim.name} — 10 tasks (balanced difficulty)`;
         section.appendChild(title);
-        dim.tasks.forEach(task => {
+        chosen.forEach(task => {
           const taskEl = document.createElement('div');
           taskEl.className = 'task';
-          const label = document.createElement('p');
-          label.innerHTML = `<strong>${task.id}</strong> — ${task.prompt}`;
-          taskEl.appendChild(label);
-          if (task.type === 'radio') {
-            task.options.forEach(opt => {
+          const prompt = document.createElement('p');
+          prompt.innerHTML = `<strong>${task.id}</strong> (Difficulty ${task.difficulty}) — ${task.question}`;
+          taskEl.appendChild(prompt);
+          if (task.type === 'multiple_choice') {
+            task.options.forEach((opt, idx) => {
               const optLabel = document.createElement('label');
               optLabel.style.display = 'block';
               const input = document.createElement('input');
               input.type = 'radio';
               input.name = task.id;
-              input.value = opt;
+              input.value = String(idx);
               optLabel.appendChild(input);
               optLabel.appendChild(document.createTextNode(' ' + opt));
               taskEl.appendChild(optLabel);
             });
-          } else if (task.type === 'number') {
+          } else if (task.type === 'numeric') {
             const input = document.createElement('input');
             input.type = 'number';
             input.name = task.id;
@@ -409,17 +388,21 @@
     }
 
     function collectAbilityAnswers() {
-      const tasks = abilityTasks.flatMap(dim => dim.tasks);
+      const tasks = Array.from(document.querySelectorAll('#ability-tasks .task'));
       const answers = [];
       for (const task of tasks) {
-        if (task.type === 'radio') {
-          const selected = document.querySelector(`input[name="${task.id}"]:checked`);
+        const idMatch = task.querySelector('strong');
+        if (!idMatch) continue;
+        const idText = idMatch.textContent.trim();
+        const inputs = task.querySelectorAll('input');
+        if (inputs.length && inputs[0].type === 'radio') {
+          const selected = Array.from(inputs).find(i => i.checked);
           if (!selected) return { complete: false, answers: [] };
-          answers.push({ task, value: selected.value });
-        } else if (task.type === 'number') {
-          const input = document.querySelector(`input[name="${task.id}"]`);
-          if (!input || input.value === '') return { complete: false, answers: [] };
-          answers.push({ task, value: Number(input.value) });
+          answers.push({ id: idText, value: Number(selected.value) });
+        } else if (inputs.length && inputs[0].type === 'number') {
+          const numInput = inputs[0];
+          if (numInput.value === '') return { complete: false, answers: [] };
+          answers.push({ id: idText, value: Number(numInput.value) });
         }
       }
       return { complete: true, answers };
@@ -429,31 +412,33 @@
       const { complete, answers } = collectAbilityAnswers();
       if (!complete) return null;
       const dimTotals = {};
-      answers.forEach(entry => {
-        const { task, value } = entry;
-        const correct = task.answer;
-        const isCorrect = typeof correct === 'number' ? Number(value) === correct : String(value) === String(correct);
+      answers.forEach(({ id, value }) => {
+        const task = findTaskById(id);
+        if (!task) return;
+        const correct = task.type === 'numeric' ? task.correctValue : task.correctIndex;
+        const isCorrect = task.type === 'numeric' ? Number(value) === Number(correct) : Number(value) === Number(correct);
         const points = isCorrect ? 5 : 0;
-        dimTotals[task.dimension || findDimensionForTask(task.id)] = (dimTotals[task.dimension || findDimensionForTask(task.id)] || 0) + points;
+        dimTotals[task.dimension] = (dimTotals[task.dimension] || 0) + points;
       });
 
-      const dimensionScores = abilityTasks.map(dim => {
-        const points = dimTotals[dim.key] || 0;
-        const normalized = points / 10;
-        return { dimension: dim.key, score: Math.round(normalized * 300) };
+      const dimensionScores = dimensionMeta.map(dim => {
+        const points = dimTotals[dim.name] || 0;
+        const normalized = points / 50;
+        return { dimension: dim.name, score: Math.round(normalized * 300) };
       });
 
       const totalPoints = Object.values(dimTotals).reduce((a, b) => a + b, 0);
-      const normalizedTotal = totalPoints / 60;
+      const normalizedTotal = totalPoints / (dimensionMeta.length * 50);
       const totalScore = Math.round(normalizedTotal * 300);
       return { totalScore, dimensionScores };
     }
 
-    function findDimensionForTask(taskId) {
-      for (const dim of abilityTasks) {
-        if (dim.tasks.some(t => t.id === taskId)) return dim.key;
+    function findTaskById(id) {
+      for (const dim of dimensionMeta) {
+        const task = (taskBanks[dim.code] || []).find(t => t.id === id);
+        if (task) return { ...task, dimension: dim.name };
       }
-      return '';
+      return null;
     }
 
     function mapMeanToSqs(mean) {
@@ -477,6 +462,8 @@
       bandEl.textContent = bandForScore(scores.totalScore);
       selfScores = scores;
       document.getElementById('self-success').textContent = 'Self-assessment calculated.';
+      document.getElementById('self-error').textContent = '';
+      updateComparison();
     }
 
     function updateAbilityResultUI(scores) {
@@ -485,72 +472,62 @@
       totalEl.textContent = `${scores.totalScore} / 300`;
       bandEl.textContent = bandForScore(scores.totalScore);
       abilityScores = scores;
-      document.getElementById('ability-success').textContent = 'Ability-based score calculated.';
+      document.getElementById('ability-success').textContent = 'Ability scores calculated.';
+      document.getElementById('ability-error').textContent = '';
+      updateComparison();
     }
 
-    function updateComparisonUI() {
-      if (!selfScores || !abilityScores) return;
+    function updateComparison() {
       const tbody = document.querySelector('#comparison-table tbody');
       tbody.innerHTML = '';
-      const abilityMap = Object.fromEntries(abilityScores.dimensionScores.map(d => [d.dimension, d.score]));
-      const rows = [];
-      selfScores.dimensionScores.forEach(dim => {
-        const abilityScore = abilityMap[dim.dimension] || 0;
-        const diff = dim.score - abilityScore;
-        const label = Math.abs(diff) < 20
-          ? 'Aligned'
-          : diff >= 20
-            ? 'Self-assessment higher than ability (possible overestimation).'
-            : 'Ability higher than self-assessment (possible underestimation).';
-        rows.push({ dimension: dim.dimension, self: dim.score, ability: abilityScore, diff, label });
-      });
-      rows.forEach(r => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${r.dimension}</td><td>${r.self}</td><td>${r.ability}</td><td>${r.diff}</td><td>${r.label}</td>`;
-        tbody.appendChild(tr);
-      });
-
-      const diffTotal = selfScores.totalScore - abilityScores.totalScore;
-      let summary = 'Your self-view is roughly aligned with your structural performance.';
-      if (Math.abs(diffTotal) >= 20) {
-        summary = diffTotal >= 20
-          ? 'You may be overestimating your structural abilities compared to the objective tasks.'
-          : 'You may be underestimating your structural abilities; you performed stronger than you rated yourself.';
+      if (!selfScores || !abilityScores) {
+        document.getElementById('alignment-summary').textContent = 'Calculate both sections to compare.';
+        return;
       }
-      document.getElementById('alignment-summary').textContent = summary;
-      document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const alignmentTexts = [];
+      dimensionMeta.forEach(dim => {
+        const selfScore = selfScores.dimensionScores.find(d => d.dimension === dim.name)?.score || 0;
+        const abilityScore = abilityScores.dimensionScores.find(d => d.dimension === dim.name)?.score || 0;
+        const diff = selfScore - abilityScore;
+        const label = diff === 0 ? 'Aligned' : diff > 0 ? 'Self > Ability' : 'Ability > Self';
+        const row = document.createElement('tr');
+        [dim.name, `${selfScore}`, `${abilityScore}`, `${diff}`, label].forEach(text => {
+          const td = document.createElement('td');
+          td.textContent = text;
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+        alignmentTexts.push(`${dim.name}: ${label}`);
+      });
+      document.getElementById('alignment-summary').textContent = alignmentTexts.join(' | ');
     }
 
-    document.getElementById('calc-self').addEventListener('click', () => {
-      const err = document.getElementById('self-error');
-      const success = document.getElementById('self-success');
-      err.textContent = '';
-      success.textContent = '';
-      const scores = computeSelfAssessmentScores();
-      if (!scores) {
-        err.textContent = 'Please answer all 24 self-assessment statements.';
-        return;
-      }
-      updateSelfAssessmentResultUI(scores);
-      updateComparisonUI();
-    });
+    function bindButtons() {
+      document.getElementById('calc-self').addEventListener('click', () => {
+        const scores = computeSelfAssessmentScores();
+        if (!scores) {
+          document.getElementById('self-error').textContent = 'Please answer every self-assessment item.';
+          return;
+        }
+        updateSelfAssessmentResultUI(scores);
+      });
 
-    document.getElementById('calc-ability').addEventListener('click', () => {
-      const err = document.getElementById('ability-error');
-      const success = document.getElementById('ability-success');
-      err.textContent = '';
-      success.textContent = '';
-      const scores = computeAbilityScores();
-      if (!scores) {
-        err.textContent = 'Please complete every ability task before calculating.';
-        return;
-      }
-      updateAbilityResultUI(scores);
-      updateComparisonUI();
-    });
+      document.getElementById('calc-ability').addEventListener('click', () => {
+        const scores = computeAbilityScores();
+        if (!scores) {
+          document.getElementById('ability-error').textContent = 'Please answer every ability task.';
+          return;
+        }
+        updateAbilityResultUI(scores);
+      });
+    }
 
-    buildSelfAssessment();
-    buildAbilityTasks();
+    (async function init() {
+      await loadAssets();
+      buildSelfAssessment();
+      buildAbilityTasks();
+      bindButtons();
+    })();
   </script>
 </body>
 </html>

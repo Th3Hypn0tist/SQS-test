@@ -1,0 +1,652 @@
+[
+  {
+    "id": "MF-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Bridge : river :: Router : ?",
+    "options": [
+      "Signal",
+      "Packet",
+      "Cable",
+      "Switch"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Skeleton : body :: Framework : ?",
+    "options": [
+      "Detail",
+      "Template",
+      "Decoration",
+      "Surface"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Filter : noise :: Gate : ?",
+    "options": [
+      "Entry",
+      "Flow",
+      "Barrier",
+      "Signal"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Index : book :: Map : ?",
+    "options": [
+      "Route",
+      "Compass",
+      "Legend",
+      "Key"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Lens : focus :: Protocol : ?",
+    "options": [
+      "Sequence",
+      "Priority",
+      "Clarity",
+      "Boundary"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "MF-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Outline : essay :: Blueprint : ?",
+    "options": [
+      "Material",
+      "Structure",
+      "Worker",
+      "Budget"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Pivot : table :: Hub : ?",
+    "options": [
+      "Spoke",
+      "Node",
+      "Center",
+      "Edge"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "MF-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scaffold : building :: Schema : ?",
+    "options": [
+      "Data",
+      "Format",
+      "Record",
+      "Column"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Heartbeat : rhythm :: Clock : ?",
+    "options": [
+      "Alarm",
+      "Tick",
+      "Chime",
+      "Face"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Valve : flow :: Moderator : ?",
+    "options": [
+      "Rule",
+      "Heat",
+      "Volume",
+      "Access"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-11",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 1: hallway pattern repeats 'O L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L O L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-12",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 2: hallway pattern repeats 'O L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L O L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-13",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 3: hallway pattern repeats 'O L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L O L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-14",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 4: hallway pattern repeats 'O L L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L L O L L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-15",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 5: hallway pattern repeats 'O L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L O L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-16",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 6: hallway pattern repeats 'O L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L O L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-17",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 7: hallway pattern repeats 'O L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L O L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-18",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 8: hallway pattern repeats 'O L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L O L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-19",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 9: hallway pattern repeats 'O L L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L L O L L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-20",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 10: hallway pattern repeats 'O L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L O L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-21",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 11: hallway pattern repeats 'O L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L O L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-22",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 12: hallway pattern repeats 'O L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L O L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-23",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 13: hallway pattern repeats 'O L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L O L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-24",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 14: hallway pattern repeats 'O L L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L L O L L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-25",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 15: hallway pattern repeats 'O L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L O L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-26",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 16: hallway pattern repeats 'O L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L O L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-27",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 17: hallway pattern repeats 'O L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L O L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-28",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 18: hallway pattern repeats 'O L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L O L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-29",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 19: hallway pattern repeats 'O L L L L L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L L L L L O L L L L L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-30",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Grid constraint scenario 20: hallway pattern repeats 'O L L'. Which sequence lets a mover advance every third step?",
+    "options": [
+      "O L L O L L",
+      "O O L O O L",
+      "L O L L O L",
+      "O L O L O L"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "MF-31",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 3 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-32",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 4 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-33",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 5 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-34",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 6 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-35",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 7 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-36",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 8 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-37",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 9 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-38",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 10 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-39",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 11 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-40",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Three domains align queues with priority to newest then alternate for 12 arrivals. Which policy matches?",
+    "options": [
+      "Always FIFO",
+      "Priority to newest then alternate",
+      "Strict round-robin",
+      "Random selection"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "MF-41",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 1: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-42",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 2: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-43",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 3: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-44",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 4: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-45",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 5: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-46",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 6: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-47",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 7: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-48",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 8: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-49",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 9: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "MF-50",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Cross-domain fixed-point alignment layer 10: planning, scheduling, layout iterate until constraints stop shifting. Which strategy matches?",
+    "options": [
+      "Iterate adjustments until no conflicts remain",
+      "Lock first choice and ignore feedback",
+      "Swap randomly until it fits",
+      "Defer constraints to the end"
+    ],
+    "correctIndex": 0
+  }
+]

@@ -1,0 +1,652 @@
+[
+  {
+    "id": "SSC-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 1: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 2: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 3: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 4: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 5: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 6: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 7: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 8: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 9: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Chain A→B→C scenario 10: what happens if B slows?",
+    "options": [
+      "C receives less input",
+      "A speeds up automatically",
+      "C speeds up",
+      "System unaffected"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-11",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 1: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-12",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 2: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-13",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 3: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-14",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 4: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-15",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 5: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-16",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 6: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-17",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 7: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-18",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 8: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-19",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 9: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-20",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 10: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-21",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 11: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-22",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 12: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-23",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 13: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-24",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 14: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-25",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 15: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-26",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 16: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-27",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 17: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-28",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 18: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-29",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 19: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-30",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Iteration 20: Prototype → Limited rollout → Monitor → Scale. Monitoring shows instability. Best next move?",
+    "options": [
+      "Ignore and scale",
+      "Return to prototype for fixes",
+      "Skip to scale",
+      "Cancel project"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "SSC-31",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-32",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-33",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-34",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-35",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-36",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-37",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-38",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-39",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-40",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Cascading chain W→X→Y→Z with feedback Z→X. If Y throttles, long-term behavior?",
+    "options": [
+      "Lower flow stabilizes after feedback reduces X output",
+      "Z accelerates and fixes Y",
+      "Chain breaks permanently",
+      "Feedback ignored"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-41",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 1: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-42",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 2: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-43",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 3: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-44",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 4: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-45",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 5: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-46",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 6: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-47",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 7: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-48",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 8: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-49",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 9: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "SSC-50",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Architecture choice 10: Plan Alpha uses redundancy then convergence; Plan Beta single path with checkpoints. Under volatility needing resilience, which is better and why?",
+    "options": [
+      "Plan Alpha; redundancy absorbs volatility",
+      "Plan Beta; single path is simpler",
+      "Neither; volatility prefers no structure",
+      "Plan Beta; checkpoints alone suffice"
+    ],
+    "correctIndex": 0
+  }
+]

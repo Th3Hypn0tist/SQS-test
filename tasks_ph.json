@@ -1,0 +1,652 @@
+[
+  {
+    "id": "PH-1",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 1: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-2",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 2: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-3",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 3: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-4",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 4: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-5",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 5: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-6",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 6: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-7",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 7: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-8",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 8: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-9",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 9: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-10",
+    "difficulty": 1,
+    "type": "multiple_choice",
+    "question": "Scenario 10: Evidence supports H1 and contradicts H2. Which remains plausible?",
+    "options": [
+      "Only H1",
+      "Only H2",
+      "Both",
+      "Neither"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "PH-11",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 1: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-12",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 2: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-13",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 3: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-14",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 4: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-15",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 5: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-16",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 6: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-17",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 7: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-18",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 8: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-19",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 9: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-20",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 10: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-21",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 11: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-22",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 12: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-23",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 13: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-24",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 14: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-25",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 15: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-26",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 16: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-27",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 17: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-28",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 18: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-29",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 19: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-30",
+    "difficulty": 2,
+    "type": "multiple_choice",
+    "question": "Phase 20: Hypotheses A (early spike), B (late spike), C (constant). Evidence shows early spike then flat. Least plausible?",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "None"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-31",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 1: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-32",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 2: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-33",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 3: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-34",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 4: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-35",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 5: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-36",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 6: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-37",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 7: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-38",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 8: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-39",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 9: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-40",
+    "difficulty": 3,
+    "type": "multiple_choice",
+    "question": "Scenario 10: H1 needs symmetry, H2 long delay, H3 short delay, H4 immediate. Evidence removes symmetry, favors delay, then caps delay at 2. Which survives?",
+    "options": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "PH-41",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 1: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-42",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 2: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-43",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 3: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-44",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 4: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-45",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 5: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-46",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 6: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-47",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 7: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-48",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 8: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-49",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 9: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "PH-50",
+    "difficulty": 4,
+    "type": "multiple_choice",
+    "question": "Stage 10: Evidence A removes models using module M. Evidence B requires reversible steps. Evidence C penalizes irreversible steps unless buffered. P uses M irreversibly, Q no M reversible, R no M irreversible unbuffered, S uses buffer reversible. Which remains?",
+    "options": [
+      "P",
+      "Q",
+      "R",
+      "S"
+    ],
+    "correctIndex": 1
+  }
+]
