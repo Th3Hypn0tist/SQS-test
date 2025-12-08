@@ -6,11 +6,11 @@
   <title>SQS Test System</title>
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f7f9fb;
       --card: #ffffff;
-      --text: #0f172a;
+      --text: #1f2937;
       --muted: #4b5563;
-      --primary: #1f6feb;
+      --primary: #2563eb;
       --border: #e5e7eb;
     }
 
@@ -34,9 +34,9 @@
     .card {
       background: var(--card);
       border-radius: 12px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
       padding: 28px;
       border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
     }
 
     h1 {
@@ -60,19 +60,11 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .placeholder {
-      background: #f0f4fa;
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      padding: 14px;
-      color: var(--muted);
-      min-height: 100px;
-    }
-
     .actions {
       margin-top: 18px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
+      gap: 12px;
     }
 
     button {
@@ -83,24 +75,31 @@
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 0 6px 16px rgba(31, 111, 235, 0.22);
       transition: transform 0.1s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
     }
 
     button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
     }
 
     button:active {
       transform: translateY(0);
-      box-shadow: 0 4px 10px rgba(31, 111, 235, 0.2);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
-    .question {
+    .question_block {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
       margin-bottom: 16px;
-      font-size: 18px;
-      line-height: 1.4;
+      background: #fdfefe;
+    }
+
+    .question_title {
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     .options {
@@ -112,39 +111,66 @@
       background: #ffffff;
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 12px;
-      box-shadow: none;
-      text-align: left;
-    }
-
-    .optionButton:hover {
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-      transform: none;
-    }
-
-    .optionButton:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-    }
-
-    .responseRow {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .responseRow input {
       padding: 10px;
+      text-align: left;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      flex: 1;
+      box-shadow: none;
     }
 
-    .progress {
+    .optionButton.selected {
+      border-color: var(--primary);
+      background: #eef2ff;
+    }
+
+    .likert-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       margin-bottom: 12px;
-      color: var(--muted);
-      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .likert-label {
+      flex: 1 1 240px;
+    }
+
+    .likert-options {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .likert-button {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 6px;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .likert-button.selected {
+      background: #eef2ff;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    th {
+      background: #f3f4f6;
     }
   </style>
 </head>
@@ -158,7 +184,7 @@
 
       <div id="page_intro" class="page-section">
         <h2>Introduction</h2>
-        <div id="intro_content" class="placeholder"></div>
+        <div id="intro_content" class="question_block"></div>
         <div class="actions">
           <button type="button" id="btn_intro_continue">Continue</button>
         </div>
@@ -166,63 +192,63 @@
 
       <div id="page_self_assessment" class="page-section">
         <h2>Self-Assessment</h2>
-        <div class="placeholder">Self-assessment content placeholder.</div>
+        <div id="self_assessment_container"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_fl">Next</button>
+          <button type="button" id="btn_self_assessment_continue">Continue to Modules</button>
         </div>
       </div>
 
       <div id="page_test_fl" class="page-section">
         <h2>Module: FL</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="fl"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_rr">Next Module</button>
+          <button type="button" id="btn_fl_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_test_rr" class="page-section">
         <h2>Module: RR</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="rr"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_mf">Next Module</button>
+          <button type="button" id="btn_rr_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_test_mf" class="page-section">
         <h2>Module: MF</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="mf"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_sc">Next Module</button>
+          <button type="button" id="btn_mf_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_test_sc" class="page-section">
         <h2>Module: SC</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="sc"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_ph">Next Module</button>
+          <button type="button" id="btn_sc_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_test_ph" class="page-section">
         <h2>Module: PH</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="ph"></div>
         <div class="actions">
-          <button type="button" data-next="page_test_ssc">Next Module</button>
+          <button type="button" id="btn_ph_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_test_ssc" class="page-section">
         <h2>Module: SSC</h2>
-        <div class="placeholder">Module content placeholder.</div>
+        <div class="module_container" data-module="ssc"></div>
         <div class="actions">
-          <button type="button" data-next="page_results">Next Module</button>
+          <button type="button" id="btn_ssc_finish">Finish Module</button>
         </div>
       </div>
 
       <div id="page_results" class="page-section">
         <h2>Results</h2>
-        <div class="placeholder">Results summary placeholder.</div>
+        <div id="results_container"></div>
       </div>
     </div>
   </div>
@@ -239,6 +265,17 @@
       ssc: [],
     };
 
+    let selectedTasks = {
+      fl: [],
+      rr: [],
+      mf: [],
+      sc: [],
+      ph: [],
+      ssc: [],
+    };
+
+    let selfScores = { fl: [], rr: [], mf: [], sc: [], ph: [], ssc: [] };
+
     function showPage(id) {
       document.querySelectorAll('.page-section').forEach((el) => {
         el.style.display = 'none';
@@ -250,25 +287,30 @@
       }
     }
 
-    async function loadModuleTasks(jsonUrl) {
-      const response = await fetch(jsonUrl);
+    async function loadModuleTasks(url) {
+      const response = await fetch(url);
       if (!response.ok) throw new Error('Failed to load tasks');
       const data = await response.json();
       return Array.isArray(data) ? data : [];
     }
 
     function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i -= 1) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [copy[i], copy[j]] = [copy[j], copy[i]];
       }
-      return array;
+      return copy;
     }
 
     function takeRandom(source, count) {
-      const copy = [...source];
-      shuffle(copy);
-      return copy.slice(0, count);
+      const pool = [...source];
+      const result = [];
+      while (pool.length && result.length < count) {
+        const idx = Math.floor(Math.random() * pool.length);
+        result.push(pool.splice(idx, 1)[0]);
+      }
+      return result;
     }
 
     function selectTenTasks(allTasks) {
@@ -287,6 +329,7 @@
 
       const extras = takeRandom(remaining, 2);
       selected.push(...extras);
+
       return shuffle(selected).slice(0, 10);
     }
 
@@ -296,126 +339,78 @@
         this.jsonUrl = jsonUrl;
         this.nextPageId = nextPageId;
         this.tasks = [];
-        this.currentIndex = 0;
-        this.container = document.querySelector(`#page_test_${moduleId} .placeholder`);
-        this.answeredIndex = -1;
+        this.answers = [];
+        this.container = document.querySelector(`#page_test_${moduleId} .module_container`);
       }
 
       async start() {
         if (!this.container) return;
-        this.container.textContent = 'Loading tasks...';
+        this.container.innerHTML = '<div class="question_block">Loading tasks...</div>';
         try {
           const allTasks = await loadModuleTasks(this.jsonUrl);
           this.tasks = selectTenTasks(allTasks);
-          this.currentIndex = 0;
-          this.answeredIndex = -1;
-          this.renderCurrentTask();
+          selectedTasks[this.moduleId] = this.tasks;
+          this.answers = new Array(this.tasks.length).fill(null);
+          this.renderAllTasks();
         } catch (err) {
-          this.container.textContent = 'Unable to load tasks.';
+          this.container.innerHTML = '<div class="question_block">Unable to load tasks.</div>';
         }
       }
 
-      renderCurrentTask() {
+      renderAllTasks() {
         if (!this.container || !this.tasks.length) return;
-        const task = this.tasks[this.currentIndex];
         this.container.innerHTML = '';
 
-        const progress = document.createElement('div');
-        progress.className = 'progress';
-        progress.textContent = `Question ${this.currentIndex + 1} of ${this.tasks.length}`;
-        this.container.appendChild(progress);
+        this.tasks.forEach((task, idx) => {
+          const block = document.createElement('div');
+          block.className = 'question_block';
 
-        const question = document.createElement('div');
-        question.className = 'question';
-        question.textContent = task.question;
-        this.container.appendChild(question);
+          const title = document.createElement('div');
+          title.className = 'question_title';
+          title.textContent = `${idx + 1}. ${task.question}`;
+          block.appendChild(title);
 
-        if (task.type === 'multiple_choice' && Array.isArray(task.options)) {
           const optionsWrapper = document.createElement('div');
           optionsWrapper.className = 'options';
-          task.options.forEach((opt) => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'optionButton';
-            btn.textContent = opt;
-            btn.addEventListener('click', () => {
-              this.disableOptions(optionsWrapper);
-              this.recordAnswer(opt);
+
+          if (task.options && task.options.length >= 4) {
+            task.options.slice(0, 4).forEach((opt, optIdx) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = 'optionButton';
+              btn.textContent = `${String.fromCharCode(65 + optIdx)}. ${opt}`;
+              btn.addEventListener('click', () => {
+                this.recordAnswer(idx, optIdx);
+                optionsWrapper.querySelectorAll('button').forEach((b) => b.classList.remove('selected'));
+                btn.classList.add('selected');
+              });
+              optionsWrapper.appendChild(btn);
             });
-            optionsWrapper.appendChild(btn);
-          });
-          this.container.appendChild(optionsWrapper);
-        } else {
-          const responseRow = document.createElement('div');
-          responseRow.className = 'responseRow';
-          const input = document.createElement('input');
-          input.type = 'number';
-          input.placeholder = 'Enter your answer';
-          const submitBtn = document.createElement('button');
-          submitBtn.type = 'button';
-          submitBtn.textContent = 'Submit Answer';
-          submitBtn.addEventListener('click', () => {
-            const value = input.value.trim();
-            if (value === '') return;
-            input.disabled = true;
-            submitBtn.disabled = true;
-            this.recordAnswer(Number(value));
-          });
-          responseRow.appendChild(input);
-          responseRow.appendChild(submitBtn);
-          this.container.appendChild(responseRow);
-        }
-      }
-
-      disableOptions(wrapper) {
-        wrapper.querySelectorAll('button').forEach((btn) => {
-          btn.disabled = true;
-        });
-      }
-
-      recordAnswer(value) {
-        const task = this.tasks[this.currentIndex];
-        if (!task || this.answeredIndex === this.currentIndex) return;
-        sqsResults[this.moduleId].push({
-          taskId: task.id,
-          response: value,
-        });
-        this.answeredIndex = this.currentIndex;
-        this.showNextButton();
-      }
-
-      showNextButton() {
-        const isLast = this.currentIndex === this.tasks.length - 1;
-        const nextBtn = document.createElement('button');
-        nextBtn.type = 'button';
-        nextBtn.textContent = isLast ? 'Next Module' : 'Next Question';
-        nextBtn.addEventListener('click', () => {
-          if (isLast) {
-            this.finishModule();
           } else {
-            this.nextTask();
+            optionsWrapper.textContent = 'Task data missing options.';
           }
+
+          block.appendChild(optionsWrapper);
+          this.container.appendChild(block);
         });
-        const actions = document.createElement('div');
-        actions.className = 'actions';
-        actions.appendChild(nextBtn);
-        this.container.appendChild(actions);
       }
 
-      nextTask() {
-        if (this.currentIndex < this.tasks.length - 1) {
-          this.currentIndex += 1;
-          this.renderCurrentTask();
-        }
+      recordAnswer(taskIndex, choiceIndex) {
+        this.answers[taskIndex] = choiceIndex;
       }
 
       finishModule() {
-        if (this.nextPageId) {
-          showPage(this.nextPageId);
-          const nextModuleId = this.nextPageId.replace('page_test_', '');
-          if (modules[nextModuleId]) {
-            modules[nextModuleId].start();
-          }
+        if (this.answers.length !== 10 || this.answers.some((a) => a === null)) {
+          alert('Please answer all 10 questions before continuing.');
+          return;
+        }
+        sqsResults[this.moduleId] = this.answers;
+        showPage(this.nextPageId);
+        if (modules[this.nextPageId.replace('page_test_', '')]) {
+          modules[this.nextPageId.replace('page_test_', '')].start();
+        }
+        if (this.nextPageId === 'page_results') {
+          renderResults();
         }
       }
     }
@@ -432,32 +427,206 @@
     function loadIntro() {
       const container = document.getElementById('intro_content');
       if (!container) return;
+      container.textContent = 'Loading introduction...';
       fetch('sqs.md')
         .then((r) => r.text())
         .then((text) => {
-          container.innerText = text;
+          container.textContent = text;
         })
         .catch(() => {
-          container.innerText = 'Unable to load introduction.';
+          container.textContent = 'Unable to load introduction.';
         });
+    }
+
+    const selfStatements = {
+      fl: [
+        'I quickly see how parts of a system connect together.',
+        'I can map complex ideas into simple diagrams.',
+        'I enjoy comparing different structures to find patterns.',
+        'I notice when a structure violates its own rules.',
+        'I can reconstruct a model after seeing it only briefly.',
+      ],
+      rr: [
+        'I identify the critical path in a process with ease.',
+        'I evaluate the reliability of information sources quickly.',
+        'I catch inconsistencies in arguments without much effort.',
+        'I can trace errors back to their root causes.',
+        'I anticipate where systems are most likely to fail.',
+      ],
+      mf: [
+        'I keep track of multiple constraints while planning.',
+        'I juggle several solution approaches at the same time.',
+        'I maintain focus even when details become dense.',
+        'I connect abstract concepts to practical examples.',
+        'I reorganize information to make it easier to recall.',
+      ],
+      sc: [
+        'I quickly spot sequences and progressions in data.',
+        'I understand how changing one piece affects the timeline.',
+        'I like arranging tasks in the most efficient order.',
+        'I visualize chain reactions before they occur.',
+        'I can optimize steps to save time or resources.',
+      ],
+      ph: [
+        'I learn best by experimenting with tangible examples.',
+        'I mentally simulate physical movements accurately.',
+        'I can break down physical tasks into precise steps.',
+        'I visualize spatial layouts from different angles.',
+        'I handle hands-on problem-solving confidently.',
+      ],
+      ssc: [
+        'I empathize with team dynamics while solving problems.',
+        'I communicate complex ideas in relatable ways.',
+        'I notice interpersonal signals that affect outcomes.',
+        'I adapt my approach to match the group\'s energy.',
+        'I encourage collaboration when tackling challenges.',
+      ],
+    };
+
+    function renderSelfAssessment() {
+      const container = document.getElementById('self_assessment_container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      Object.entries(selfStatements).forEach(([domain, statements]) => {
+        const section = document.createElement('div');
+        section.className = 'question_block';
+
+        const title = document.createElement('div');
+        title.className = 'question_title';
+        title.textContent = `${domain.toUpperCase()} Self-Assessment`;
+        section.appendChild(title);
+
+        statements.forEach((statement, idx) => {
+          const row = document.createElement('div');
+          row.className = 'likert-row';
+
+          const label = document.createElement('div');
+          label.className = 'likert-label';
+          label.textContent = `${idx + 1}. ${statement}`;
+          row.appendChild(label);
+
+          const options = document.createElement('div');
+          options.className = 'likert-options';
+
+          for (let score = 1; score <= 7; score += 1) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'likert-button';
+            btn.textContent = score;
+            btn.addEventListener('click', () => {
+              selfScores[domain][idx] = score;
+              options.querySelectorAll('button').forEach((b) => b.classList.remove('selected'));
+              btn.classList.add('selected');
+            });
+            options.appendChild(btn);
+          }
+
+          row.appendChild(options);
+          section.appendChild(row);
+        });
+
+        container.appendChild(section);
+      });
+    }
+
+    function validateSelfAssessment() {
+      return Object.entries(selfStatements).every(([domain, statements]) => {
+        return selfScores[domain] && selfScores[domain].length === statements.length && selfScores[domain].every((v) => v);
+      });
+    }
+
+    function attachModuleFinishHandlers() {
+      document.getElementById('btn_fl_finish')?.addEventListener('click', () => modules.fl.finishModule());
+      document.getElementById('btn_rr_finish')?.addEventListener('click', () => modules.rr.finishModule());
+      document.getElementById('btn_mf_finish')?.addEventListener('click', () => modules.mf.finishModule());
+      document.getElementById('btn_sc_finish')?.addEventListener('click', () => modules.sc.finishModule());
+      document.getElementById('btn_ph_finish')?.addEventListener('click', () => modules.ph.finishModule());
+      document.getElementById('btn_ssc_finish')?.addEventListener('click', () => modules.ssc.finishModule());
+    }
+
+    function computeSelfAverages() {
+      const averages = {};
+      Object.entries(selfScores).forEach(([domain, scores]) => {
+        if (!scores.length) {
+          averages[domain] = 0;
+        } else {
+          const sum = scores.reduce((acc, val) => acc + val, 0);
+          averages[domain] = (sum / scores.length).toFixed(2);
+        }
+      });
+      return averages;
+    }
+
+    function computeAbilityScores() {
+      const abilities = {};
+      Object.entries(sqsResults).forEach(([domain, answers]) => {
+        const tasks = selectedTasks[domain] || [];
+        let correctCount = 0;
+        answers.forEach((answerIdx, i) => {
+          const task = tasks[i];
+          if (task && Number(task.correctIndex) === Number(answerIdx)) correctCount += 1;
+        });
+        abilities[domain] = tasks.length ? ((correctCount / 10) * 100).toFixed(0) : '0';
+      });
+      return abilities;
+    }
+
+    function renderResults() {
+      const container = document.getElementById('results_container');
+      if (!container) return;
+      const selfAvg = computeSelfAverages();
+      const abilityScores = computeAbilityScores();
+
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const headRow = document.createElement('tr');
+      ['Domain', 'Self-assessment (1-7)', 'Ability score (0-100)'].forEach((label) => {
+        const th = document.createElement('th');
+        th.textContent = label;
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      ['fl', 'rr', 'mf', 'sc', 'ph', 'ssc'].forEach((domain) => {
+        const row = document.createElement('tr');
+        const domainCell = document.createElement('td');
+        domainCell.textContent = domain.toUpperCase();
+        const selfCell = document.createElement('td');
+        selfCell.textContent = selfAvg[domain] ?? '0';
+        const abilityCell = document.createElement('td');
+        abilityCell.textContent = abilityScores[domain] ?? '0';
+        row.appendChild(domainCell);
+        row.appendChild(selfCell);
+        row.appendChild(abilityCell);
+        tbody.appendChild(row);
+      });
+      table.appendChild(tbody);
+
+      container.innerHTML = '';
+      container.appendChild(table);
     }
 
     function setupFlow() {
       showPage(currentPage);
       loadIntro();
+      renderSelfAssessment();
+      attachModuleFinishHandlers();
 
-      const introBtn = document.getElementById('btn_intro_continue');
-      if (introBtn) {
-        introBtn.addEventListener('click', () => showPage('page_self_assessment'));
-      }
+      document.getElementById('btn_intro_continue')?.addEventListener('click', () => {
+        showPage('page_self_assessment');
+      });
 
-      const selfAssessmentBtn = document.querySelector('#page_self_assessment button');
-      if (selfAssessmentBtn) {
-        selfAssessmentBtn.addEventListener('click', () => {
-          modules.fl.start();
-          showPage('page_test_fl');
-        });
-      }
+      document.getElementById('btn_self_assessment_continue')?.addEventListener('click', () => {
+        if (!validateSelfAssessment()) {
+          alert('Please respond to all self-assessment statements.');
+          return;
+        }
+        modules.fl.start();
+        showPage('page_test_fl');
+      });
     }
 
     window.addEventListener('DOMContentLoaded', setupFlow);
